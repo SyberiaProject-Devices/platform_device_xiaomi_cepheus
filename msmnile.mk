@@ -334,6 +334,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.3-service.cepheus-libperfmgr \
     powerhint.json
 
+# Preopt SystemUI
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    SystemUI
+
 # QMI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
