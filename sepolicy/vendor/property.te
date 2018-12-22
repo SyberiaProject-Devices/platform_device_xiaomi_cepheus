@@ -1,6 +1,11 @@
 type mlipay_prop, property_type;
 
 type persist_sensors_prop, property_type;
+# Insmod
+type vendor_device_prop, property_type;
+
+# PowerHal
+vendor_internal_prop(vendor_power_prop)
 
 # Power
 type power_prop, property_type;
