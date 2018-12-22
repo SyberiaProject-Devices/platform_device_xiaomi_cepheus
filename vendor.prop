@@ -220,3 +220,5 @@ persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 # Wi-Fi
 wifi.aware.interface=wifi-aware0
+#Vulcan render
+debug.hwui.renderer=skiavk

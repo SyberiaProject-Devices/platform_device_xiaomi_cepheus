@@ -36,6 +36,13 @@ ro.miui.cust_variant                u:object_r:public_vendor_default_prop:s0
 # RIL
 ro.vendor.ril                            u:object_r:public_vendor_default_prop:s0
 
+# Insmod
+vendor.all.modules.ready           u:object_r:vendor_device_prop:s0
+vendor.all.devices.ready           u:object_r:vendor_device_prop:s0
+
+# Power
+vendor.powerhal.           u:object_r:vendor_power_prop:s0
+
 # Sensor
 persist.sensor.sardisable                u:object_r:sensors_prop:s0
 persist.sensor.                          u:object_r:persist_sensors_prop:s0
