@@ -126,7 +126,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_TAP_TO_WAKE_NODE := "/dev/input/event4"
 
 # QCOM
-BOARD_USES_QCOM_HARDWARE := true
 TARGET_USE_SDCLANG := true
 
 # Recovery
