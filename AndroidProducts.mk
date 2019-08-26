@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/beast_cepheus.mk
+    $(LOCAL_DIR)/syberia_cepheus.mk
