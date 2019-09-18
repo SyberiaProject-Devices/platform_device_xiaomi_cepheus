@@ -149,9 +149,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # IOP
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.iop.enable_uxe=0 \
+    vendor.iop.enable_uxe=1 \
     vendor.iop.enable_prefetch_ofr=0 \
     vendor.perf.iop_v3.enable=true \
+		persist.vendor.qti.games.gt.prof=1 \
     vendor.perf.gestureflingboost.enable=true \
     vendor.perf.workloadclassifier.enable=true \
     ro.vendor.at_library=libqti-at.so
