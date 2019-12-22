@@ -127,7 +127,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.multicam=TRUE \
     persist.camera.gyro.disable=0 \
     camera.disable_zsl_mode=true \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap \
+    ro.miui.notch=1
 
 # CNE and DPM
 PRODUCT_PROPERTY_OVERRIDES += \
