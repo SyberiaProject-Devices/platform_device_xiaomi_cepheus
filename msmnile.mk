@@ -255,6 +255,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
 
+# IWLAN
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/vintf/manifest/vendor.qti.hardware.data.iwlan.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.qti.hardware.data.iwlan.xml
+
+
 # IFAA manager
 PRODUCT_PACKAGES += \
     IFAAService \
