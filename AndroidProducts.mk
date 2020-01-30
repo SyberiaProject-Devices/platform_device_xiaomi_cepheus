@@ -13,4 +13,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_cepheus.mk
+    $(LOCAL_DIR)/havoc_cepheus.mk
+
+COMMON_LUNCH_CHOICES := \
+    havoc_cepheus-user \
+    havoc_cepheus-userdebug \
+    havoc_cepheus-eng 
