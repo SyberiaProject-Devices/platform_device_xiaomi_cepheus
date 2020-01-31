@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2020 The PixelExperience Project
+** Copyright 2020, The PixelExperience Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -19,10 +19,12 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<!-- Whether device has a notch -->
-    <bool name="config_haveNotch">true</bool>
+<!-- The maximum count of notifications on Keyguard (only when ambient play indication is showing on keyguard).
+         The rest will be collapsed in an overflow card.
+     -->
+    <integer name="keyguard_max_notification_count_ambient_play">6</integer>
 
-    <!-- Shows the required view for in-display fingerprint -->
-    <bool name="config_supportsInDisplayFingerprint">true</bool>
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">192dp</dimen>
 
 </resources>

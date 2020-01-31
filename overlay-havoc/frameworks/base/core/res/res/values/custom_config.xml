@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2020 The PixelExperience Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
+    <!-- Display mode remapping table.
+         If the mode names returned by the backend do not match
+         the predefined and translated strings in the Settings
+         app, they can be remapped here. The format is
+         "oldname:newname", one per entry. -->
+    <string-array name="config_displayModeMappings" translatable="false">
+        <item>none:standard</item>
+        <item>smart_eyedefault:reading</item>
+        <item>GM_1:saturated</item>
+        <item>hal_srgb:srgb</item>
+        <item>smart_MC:dci_p3</item>
+    </string-array>
+
+    <!-- Whether device has a notch -->
+    <bool name="config_haveNotch">true</bool>
+
+    <!-- Shows the required view for in-display fingerprint -->
+    <bool name="config_supportsInDisplayFingerprint">true</bool>
+
+    <!-- Whether the device has outdated qti-telephony-common.jar -->
+    <bool name="config_oldQtiTelephony">false</bool>
+        
+    <!-- Hide the vendor mismatch dialog -->
+    <bool name="config_show_vendor_mismatch_message">false</bool>
+
+    <!-- Enable burn-in protection -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
+    <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- Screen brightness when dozing. -->
+    <integer name="config_screenBrightnessDoze">90</integer>
+
+    <!-- Keycodes of gestures. If the gesture is not supported set it to 0. -->
+    <integer name="config_doubleTapKeyCode">143</integer>
+
+    <!-- Default settings for gestures
+            0 - Disabled
+            1 - Wake device
+            2 - Toggle flashlight
+            3 - Toggle airplane mode
+            4 - Play/Pause music
+            5 - Next music
+            6 - Previous music
+            7 - Open camera
+            8 - Open dialer -->
+    <integer name="config_doubleTapDefault">1</integer>
+
+    <!-- Whether to intercept inputs on screen off. -->
+    <bool name="config_enableKeyHandler">true</bool>
+</resources>
