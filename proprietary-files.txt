@@ -554,7 +554,6 @@ vendor/lib64/vendor.qti.gnss@4.0-service.so
 vendor/lib64/vendor.qti.gnss@4.0.so
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
-<<<<<<< HEAD
 # GPS (configs)
 vendor/etc/apdr.conf
 vendor/etc/flp.conf
@@ -605,7 +604,6 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libpvr.so
 
-# Graphics (firmware)
 vendor/firmware/a612_rgmu.bin
 vendor/firmware/a618_gmu.bin
 vendor/firmware/a630_gmu.bin
@@ -616,6 +614,15 @@ vendor/firmware/a640_zap.b01
 vendor/firmware/a640_zap.b02
 vendor/firmware/a640_zap.elf
 vendor/firmware/a640_zap.mdt
+=======
+# HotwordEnrollment
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
+
+# IP CAM
+vendor/bin/ipacm
+vendor/etc/IPACM_cfg.xml
+>>>>>>> aa49c0add... Revert "raphael: Drop Hotword support"
 
 # IRQ balance
 vendor/bin/msm_irqbalance
