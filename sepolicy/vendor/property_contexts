@@ -16,3 +16,9 @@ sys.panel.display                        u:object_r:vendor_fp_prop:s0
 
 # Xiaomi thermal daemon
 sys.thermal.                             u:object_r:thermal_normal_prop:s0
+
+vendor.fastrpc.process.attrs     u:object_r:vendor_adsprpc_prop:s0
+vendor.fastrpc.debug.trace       u:object_r:vendor_adsprpc_prop:s0
+vendor.fastrpc.perf.kernel         u:object_r:vendor_adsprpc_prop:s0
+vendor.fastrpc.perf.adsp            u:object_r:vendor_adsprpc_prop:s0
+vendor.fastrpc.perf.freq              u:object_r:vendor_adsprpc_prop:s0
