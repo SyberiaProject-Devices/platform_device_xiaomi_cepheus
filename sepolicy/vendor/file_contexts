@@ -1,5 +1,5 @@
 # Audio
-/dev/socket/audioserver                   u:object_r:audio_socket:s0
+/dev/socket/audio_hw_socket                   u:object_r:audio_socket:s0
 
 # Camera
 /mnt/vendor/persist/camera(/.*)?              u:object_r:camera_persist_file:s0
@@ -15,6 +15,7 @@
 # HALs
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.xiaomi_msmnile                                    u:object_r:hal_light_default_exec:s0
 /vendor/bin/hw/vendor\.lineage\.biometrics\.fingerprint\.inscreen@1.0-service\.xiaomi_cepheus                   u:object_r:hal_lineage_fod_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power@1\.2-service\.xiaomi_msmnile                                                     u:object_r:hal_power_default_exec:s0
 
 # Mlipay
 /(vendor|system/vendor)/bin/mlipayd@1.1       u:object_r:hal_mlipay_default_exec:s0
