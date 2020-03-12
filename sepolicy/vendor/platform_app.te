@@ -1,0 +1,3 @@
+allow platform_app exported2_default_prop:file { read open getattr map };
+allow platform_app cgroup:file { read open getattr map };
+
