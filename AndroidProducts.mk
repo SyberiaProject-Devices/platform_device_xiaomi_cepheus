@@ -13,9 +13,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_cepheus.mk
+    $(LOCAL_DIR)/syberia_cepheus.mk
 
 COMMON_LUNCH_CHOICES := \
-    havoc_cepheus-user \
-    havoc_cepheus-userdebug \
-    havoc_cepheus-eng 
+    syberia_cepheus-user \
+    syberia_cepheus-userdebug \
+    syberia_cepheus-eng 
