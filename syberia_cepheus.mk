@@ -32,6 +32,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="cepheus" \
     TARGET_DEVICE="cepheus"
 
+SYBERIA_BUILD_TYPE := OFFICIAL
+
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit from custom vendor
