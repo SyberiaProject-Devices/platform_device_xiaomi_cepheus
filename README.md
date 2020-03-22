@@ -1,4 +1,4 @@
-Copyright (C) 2019 Paranoid Android
+Copyright (C) 2020 Syberia Project
 
 Device configuration for Xiaomi Mi 9
 =========================================
