@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (C) 2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -71,6 +71,7 @@ namespace V1_0 {
 namespace implementation {
 
 FingerprintInscreen::FingerprintInscreen() {
+    this->mFodCircleVisible = false;
     xiaomiFingerprintService = IXiaomiFingerprint::getService();
 }
 
@@ -109,14 +110,15 @@ Return<void> FingerprintInscreen::onRelease() {
     set(FOD_HBM_PATH, FOD_HBM_OFF);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     if(true == this->shouldChangeDcStatus) {
-	set(DC_STATUS_PATH, DC_STATUS_ON);
-	this->shouldChangeDcStatus = false;
+	    set(DC_STATUS_PATH, DC_STATUS_ON);
+	    this->shouldChangeDcStatus = false;
     }
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
+    this->mFodCircleVisible = true;
     return Void();
 }
 
