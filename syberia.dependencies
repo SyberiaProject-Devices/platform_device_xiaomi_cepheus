@@ -77,5 +77,20 @@
    "repository": "LineageOS/android_packages_resources_devicesettings",
    "target_path": "packages/resources/devicesettings",
    "branch": "lineage-17.1"
+ },
+ {
+   "repository": "LineageOS/android_external_ant-wireless_ant_native",
+   "target_path": "external/ant-wireless/ant_native",
+   "branch": "lineage-17.1"
+ },
+ {
+   "repository": "LineageOS/android_external_ant-wireless_antradio-library",
+   "target_path": "external/ant-wireless/antradio-library",
+   "branch": "lineage-17.1"
+ },
+ {
+   "repository": "LineageOS/android_external_ant-wireless_ant_service",
+   "target_path": "external/ant-wireless/ant_service",
+   "branch": "lineage-17.1"
  }
 ]
