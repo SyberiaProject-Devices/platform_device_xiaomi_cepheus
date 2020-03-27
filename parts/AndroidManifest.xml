@@ -69,10 +69,5 @@
                        android:value="com.android.settings.category.ia.display" />
         </activity>
 
-        <service
-            android:name=".fpsinfo.FPSInfoService"
-            android:exported="false">
-        </service>
-
     </application>
 </manifest>
