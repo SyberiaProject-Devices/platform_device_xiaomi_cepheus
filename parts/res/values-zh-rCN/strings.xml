@@ -56,8 +56,4 @@
     <string name="dirac_preset_country">乡村</string>
     <string name="dirac_preset_dance">舞曲</string>
     <string name="dirac_preset_metal">金属</string>
-
-    <!-- FPS Counter -->
-    <string name="fps_info_title">实时帧率</string>
-
 </resources>
