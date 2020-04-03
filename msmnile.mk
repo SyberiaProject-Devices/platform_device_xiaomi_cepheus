@@ -309,6 +309,10 @@ PRODUCT_COPY_FILES += \
     hardware/qcom/media-caf/sm8150/conf_files/msmnile/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
     hardware/qcom/media-caf/sm8150/conf_files/msmnile/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml
 
+# Native Public Libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Network
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
