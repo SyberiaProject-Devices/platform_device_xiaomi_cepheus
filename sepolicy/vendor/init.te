@@ -7,4 +7,3 @@ allow init vendor_file:file { execute };
 # Allow init to mount vendor configs
 allow init vendor_configs_file:file { mounton };
 
-permissive init;
