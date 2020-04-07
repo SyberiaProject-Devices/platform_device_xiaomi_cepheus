@@ -28,6 +28,3 @@ ro.hardware.fp.fod			u:object_r:mlipay_prop:s0
 # Sensor
 persist.sensor.                          u:object_r:persist_sensors_prop:s0
 
-# Xiaomi thermal daemon
-sys.thermal.                             u:object_r:thermal_normal_prop:s0
-
