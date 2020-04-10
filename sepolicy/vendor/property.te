@@ -1,3 +1,14 @@
+# Mlipay
 type mlipay_prop, property_type;
 
+# Sensor
 type persist_sensors_prop, property_type;
+
+# Init
+type vendor_device_prop, property_type;
+
+# Power
+type power_prop, property_type;
+
+# Touchpanel
+type proc_touchpanel, proc_type;
