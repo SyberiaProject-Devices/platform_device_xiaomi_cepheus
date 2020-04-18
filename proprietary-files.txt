@@ -898,8 +898,10 @@ vendor/lib64/sensors.elliptic.so
 vendor/lib64/sensors.ssc.so
 vendor/lib64/sensors.touch.so
 
+# Thermal - from coral-user 10 QQ2A.200405.005 6254899 release-keys
+vendor/bin/thermal-engine|73b7c5cc1b2dd4c8a3b6168fa08132aedb018cdb
+
 # Thermal
-vendor/bin/thermal-engine
 vendor/etc/thermal-engine.conf
 vendor/lib64/libthermalclient.so
 
