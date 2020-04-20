@@ -1,5 +1,0 @@
-set_prop(vendor_init, power_prop)
-
-allow vendor_init debugfs_clk:file write;
-
-allow vendor_init debugfs_sched_features:file write;
