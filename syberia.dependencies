@@ -15,8 +15,8 @@
    "branch"     : "ten"
  },
  {
-   "repository" : "DarkDampSquib/vendor_MiuiCamera",
-   "target_path": "vendor/MiuiCamera",
+   "repository" : "EcrosoftXiao/vendor_MiuiCamera",
+   "target_path": "vendor/ANXCamera",
    "branch"     : "master"
  },
  {
