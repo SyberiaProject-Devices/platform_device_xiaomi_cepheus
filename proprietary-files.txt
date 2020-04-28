@@ -994,6 +994,7 @@ etc/init/wfdservice.rc
 etc/wfdconfigsink.xml
 -framework/WfdCommon.jar
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
+lib/libdisplayconfig.so
 lib/libFileMux.so
 lib/libmmosal.so
 lib/libmmparser_lite.so
