@@ -11,7 +11,6 @@ ro.camera.res.fmq.size         u:object_r:exported_system_prop:s0 exact int
 ro.vendor.df.effect.conflict   u:object_r:exported_system_prop:s0 exact int
 ro.miui.notch                  u:object_r:exported_system_prop:s0 exact int
 vendor.panel.display           u:object_r:exported_system_prop:s0 exact int
-ro.product.system.manufacturer u:object_r:exported2_default_prop:s0 exact string
 
 # Fingerprint
 persist.vendor.sys.fp.                   u:object_r:vendor_fp_prop:s0
@@ -25,7 +24,17 @@ persist.vendor.sys.pay.                 u:object_r:mlipay_prop:s0
 persist.vendor.sys.provision.status     u:object_r:mlipay_prop:s0
 ro.hardware.fp.fod			u:object_r:mlipay_prop:s0
 
+# Global
+ro.boot.factorybuild                u:object_r:public_vendor_default_prop:s0
+ro.boot.hwversion                   u:object_r:public_vendor_default_prop:s0
+ro.carrier.name                     u:object_r:public_vendor_default_prop:s0
+ro.miui.cust_variant                u:object_r:public_vendor_default_prop:s0
+
+# RIL
+ro.vendor.ril                            u:object_r:public_vendor_default_prop:s0
+
 # Sensor
+persist.sensor.sardisable                u:object_r:sensors_prop:s0
 persist.sensor.                          u:object_r:persist_sensors_prop:s0
 
 # Xiaomi thermal daemon
