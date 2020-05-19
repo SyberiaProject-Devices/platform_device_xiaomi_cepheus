@@ -7,12 +7,6 @@
 # Display
 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable        u:object_r:sysfs_dm:s0
 
-
-# Elliptic
-/dev/elliptic0		                                                                               u:object_r:sensors_device:s0
-/dev/elliptic1		                                                                               u:object_r:sensors_device:s0
-/dev/mius(.*)?                                                                                         u:object_r:sound_device:s0
-
 # Fingerprint
 /dev/goodix_fp                                u:object_r:fingerprint_device:s0
 /data/vendor/goodix(/.*)?                     u:object_r:fingerprint_data_file:s0
