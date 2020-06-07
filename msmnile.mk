@@ -300,7 +300,9 @@ PRODUCT_PACKAGES += \
     vndk-sp \
     com.android.vndk.current.on_vendor
 
-# Hotword Enrollment
+PRODUCT_PACKAGES += \
+    init.affinity.sh
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml \
     $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
