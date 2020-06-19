@@ -72,5 +72,10 @@
    "repository": "LineageOS/android_packages_resources_devicesettings",
    "target_path": "packages/resources/devicesettings",
    "branch": "lineage-17.1"
+ },
+ {
+   "repository": "SOVIET-ANDROID/platform_vendor_google-customization",
+   "target_path": "vendor/google-customization",
+   "branch":      "10.0"
  }
 ]
