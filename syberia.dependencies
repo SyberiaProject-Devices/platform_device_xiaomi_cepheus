@@ -1,35 +1,45 @@
 [
  {
-   "repository" : "EcrosoftXiao/vendor_xiaomi_cepheus",
+   "repository" : "mesziman/proprietary_vendor_xiaomi-4",
    "target_path": "vendor/xiaomi/cepheus",
-   "branch"     : "ten"
+   "branch"     : "ten-12"
  },
  {
-   "repository" : "EcrosoftXiao/kernel_xiaomi_sm8150",
-   "target_path": "kernel/xiaomi/sm8150",
-   "branch"     : "ten"
+   "repository" : "kdrag0n/proton-clang",
+   "target_path": "prebuilts/clang/host/linux-x86/clang-11",
+   "branch"     : "master"
  },
  {
-   "repository" : "EcrosoftXiao/hardware-qcom-display-caf-sm8150",
+   "repository" : "mesziman/kernel_xiaomi_sm8150-2",
+   "target_path": "kernel/xiaomi/cepheus",
+   "branch"     : "pelt-upstream-newfod"
+ },
+ {
+   "repository" : "mesziman/platform_hardware_qcom_display",
    "target_path": "hardware/qcom/display-caf/sm8150",
-   "branch"     : "ten"
+   "branch"     : "queen-cake-8150"
  },
  {
-   "repository" : "EcrosoftXiao/vendor_MiuiCamera",
+   "repository" : "DarkDampSquib/vendor_MiuiCamera",
    "target_path": "vendor/ANXCamera",
    "branch"     : "master"
  },
  {
-   "repository" : "LineageOS/android_hardware_qcom_audio",
+    "repository": "mesziman/proprietary_vendor_qcom_common",
+    "target_path": "vendor/qcom/common",
+    "branch": "quartz"
+ },
+ {
+   "repository" : "mesziman/platform_hardware_qcom_audio",
    "target_path": "hardware/qcom/audio-caf/sm8150",
-   "branch"     : "lineage-17.1-caf-sm8150"
+   "branch"     : "queen-cake-8150"
  },
  {
-   "repository" : "LineageOS/android_hardware_qcom_media",
+   "repository" : "mesziman/platform_hardware_qcom_media",
    "target_path": "hardware/qcom/media-caf/sm8150",
-   "branch"     : "lineage-17.1-caf-sm8150"
+   "branch"     : "queen-cake-8150"
  },
- {
+{
    "repository" : "LineageOS/android_hardware_qcom-caf_common",
    "target_path": "hardware/qcom/common",
    "branch"     : "lineage-17.1"
