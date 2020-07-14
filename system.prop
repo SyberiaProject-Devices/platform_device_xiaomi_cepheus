@@ -75,5 +75,14 @@ ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 # WiFi
 wifi.interface=wlan0
 
+#audio
+qcom.hw.aac.encoder=true
+
+ro.rom.zone=2 
+ro.miui.has_gmscore=1
+ro.miui.build.region=eea
+ro.miui.ui.version.code=9
+ro.miui.ui.version.name=V11
+
 # Zygote preforking
 persist.device_config.runtime_native.usap_pool_enabled=true

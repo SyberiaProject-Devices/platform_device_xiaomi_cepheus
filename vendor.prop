@@ -12,6 +12,10 @@ persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.voicerec=true
 persist.vendor.audio.ras.enabled=false
 persist.vendor.audio.voicecall.speaker.stereo=true
+ro.audio.recording.hd=true
+ro.vendor.audio.us.proximity=true
+ro.vendor.audio.sos=true
+vendor.audio.adm.buffering.ms=6
 ro.af.client_heap_size_kbyte=7168
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=7
@@ -118,6 +122,7 @@ persist.vendor.data.mode=concurrent
 persist.vendor.data.iwlan.enable=true
 	
 # Display
+vendor.gralloc.disable_ubwc=0
 vendor.display.comp_mask=0
 vendor.display.dataspace_saturation_matrix=1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0
 vendor.display.disable_decimation=1
@@ -178,7 +183,9 @@ persist.radio.VT_HYBRID_ENABLE=1
 persist.sys.fflag.override.settings_network_and_internet_v2=true
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
-persist.vendor.radio.enableadvancedscan=
+persist.vendor.radio.enableadvancedscan=true
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.atfwd.start=true
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
@@ -198,6 +205,11 @@ debug.sf.early_phase_offset_ns=500000
 debug.sf.early_app_phase_offset_ns=500000
 debug.sf.early_gl_phase_offset_ns=3000000
 debug.sf.early_gl_app_phase_offset_ns=15000000
+
+#media codecs 
+debug.stagefright.ccodec=1
+debug.stagefright.omx_default_rank.sw-audio=1
+debug.stagefright.omx_default_rank=0
 	
 # WFD
 persist.debug.wfd.enable=1

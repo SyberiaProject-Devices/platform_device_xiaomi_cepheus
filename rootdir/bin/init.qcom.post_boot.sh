@@ -87,38 +87,11 @@ function configure_memory_parameters() {
     # Set swappiness to 100 for all targets
     echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
     echo 100 > /proc/sys/vm/swappiness
-
+    echo 128 > /sys/block/sda/bdi/read_ahead_kb
 }
 
 case "$target" in
     "msmnile")
-    # Core control parameters for gold
-    echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-    echo 60 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-    echo 30 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-    echo 100 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-    echo 3 > /sys/devices/system/cpu/cpu4/core_ctl/task_thres
-
-    # Core control parameters for gold+
-    echo 0 > /sys/devices/system/cpu/cpu7/core_ctl/min_cpus
-    echo 60 > /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres
-    echo 30 > /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres
-    echo 100 > /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms
-    echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/task_thres
-
-    # Controls how many more tasks should be eligible to run on gold CPUs
-    # w.r.t number of gold CPUs available to trigger assist (max number of
-    # tasks eligible to run on previous cluster minus number of CPUs in
-    # the previous cluster).
-    #
-    # Setting to 1 by default which means there should be at least
-    # 4 tasks eligible to run on gold cluster (tasks running on gold cores
-    # plus misfit tasks on silver cores) to trigger assitance from gold+.
-    echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/nr_prev_assist_thresh
-
-    # Disable Core control on silver
-    echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
-
     # Setting b.L scheduler parameters
     echo 95 95 > /proc/sys/kernel/sched_upmigrate
     echo 85 85 > /proc/sys/kernel/sched_downmigrate
@@ -128,7 +101,9 @@ case "$target" in
 
     # cpuset parameters
     echo 0-1 > /dev/cpuset/background/cpus
-    echo 0-2 > /dev/cpuset/system-background/cpus
+    echo 0-7 > /dev/cpuset/top-app/cpus
+    echo 0-3,5-6 > /dev/cpuset/foreground/cpus
+    echo 0-3 > /dev/cpuset/system-background/cpus
     echo 0-3 > /dev/cpuset/restricted/cpus
 
     # Setup final blkio
@@ -140,29 +115,18 @@ case "$target" in
 
     # Configure governor settings for silver cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-    echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+    echo 5000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+    echo 10000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 
     # Configure governor settings for gold cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1612800 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
+    echo 5000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+    echo 10000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
 
     # Configure governor settings for gold+ cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1612800 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
-
-    # Configure input boost settings
-    echo "0:1017600" > /sys/module/cpu_boost/parameters/input_boost_freq
-    echo 80 > /sys/module/cpu_boost/parameters/input_boost_ms
+    echo 5000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
+    echo 10000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
 
     # Disable wsf, beacause we are using efk.
     # wsf Range : 1..1000 So set to bare minimum value 1.
@@ -224,7 +188,7 @@ case "$target" in
         for memlat in $device/*cpu*-lat/devfreq/*cpu*-lat
         do
         echo "mem_latency" > $memlat/governor
-        echo 8 > $memlat/polling_interval
+        echo 10 > $memlat/polling_interval
         echo 400 > $memlat/mem_latency/ratio_ceil
         done
 

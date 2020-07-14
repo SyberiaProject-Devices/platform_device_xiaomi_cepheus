@@ -1,3 +1,8 @@
 allow qti_init_shell sysfs:file { write };
 allow qti_init_shell sysfs_loop:file { write };
+allow qti_init_shell debugfs_clk:file write;
+allow qti_init_shell debugfs_sched_features:file write;
+
 #dontaudit qti_init_shell self:capability dac_override;
+set_prop(qti_init_shell, power_prop)
+

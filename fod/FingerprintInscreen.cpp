@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (C) 2019 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,10 +35,6 @@
 #define FOD_STATUS_ON 1
 #define FOD_STATUS_OFF 0
 
-#define DC_STATUS_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable"
-#define DC_STATUS_ON 1
-#define DC_STATUS_OFF 0
-
 #define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui"
 
 #define FOD_SENSOR_X 455
@@ -46,14 +42,6 @@
 #define FOD_SENSOR_SIZE 173
 
 namespace {
-
-template <typename T>
-static T get(const std::string& path, const T& def) {
-    std::ifstream file(path);
-    T result;
-    file >> result;
-    return file.fail() ? def : result;
-}
 
 template <typename T>
 static void set(const std::string& path, const T& value) {
@@ -91,7 +79,6 @@ namespace V1_0 {
 namespace implementation {
 
 FingerprintInscreen::FingerprintInscreen() {
-    this->mFodCircleVisible = false;
     xiaomiFingerprintService = IXiaomiFingerprint::getService();
 
     std::thread([this]() {
@@ -141,31 +128,20 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
-    this->shouldChangeDcStatus = false;
-    if(1 == get(DC_STATUS_PATH,  0)) {
-        set(DC_STATUS_PATH, DC_STATUS_OFF);
-        this->shouldChangeDcStatus = true;
-    }
     return Void();
 }
 
 Return<void> FingerprintInscreen::onRelease() {
-    if(true == this->shouldChangeDcStatus) {
-	    set(DC_STATUS_PATH, DC_STATUS_ON);
-	    this->shouldChangeDcStatus = false;
-    }
     return Void();
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_ON);
-    this->mFodCircleVisible = true;
     return Void();
 }
 
 Return<void> FingerprintInscreen::onHideFODView() {
     set(FOD_STATUS_PATH, FOD_STATUS_OFF);
-    this->mFodCircleVisible = false;
     return Void();
 }
 
