@@ -26,6 +26,11 @@ $(call inherit-product, vendor/google-customization/config.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 
+
+$(call inherit-product-if-exists, vendor/qcom/common/wfd/qti-wfd.mk)
+$(call inherit-product-if-exists, vendor/qcom/common/av/qti-av.mk)
+$(call inherit-product-if-exists, vendor/qcom/common/bt/qti-bt.mk)
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
