@@ -536,6 +536,11 @@ PRODUCT_BOOT_JARS += \
 
 PRODUCT_BOOT_JARS += tcmiface
 
+
+# VNDK
+PRODUCT_PACKAGES += \
+    vndk_package
+
 # XiaomiParts
 PRODUCT_PACKAGES += \
     XiaomiParts
