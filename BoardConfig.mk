@@ -141,6 +141,12 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
+ODM_MANIFEST_SKUS += \
+    qva
+
+ODM_MANIFEST_QVA_FILES := $(DEVICE_PATH)/manifest-qva.xml
+
+
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
