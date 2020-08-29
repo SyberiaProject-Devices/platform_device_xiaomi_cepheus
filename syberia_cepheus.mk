@@ -35,6 +35,11 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 SYBERIA_BUILD_TYPE := OFFICIAL
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+# FaceUnlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# FOD
+TARGET_HAS_FOD := true
 
 # Inherit from custom vendor
 $(call inherit-product, vendor/ANXCamera/config.mk)
