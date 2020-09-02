@@ -41,5 +41,9 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 # FOD
 TARGET_HAS_FOD := true
 
+# Dev certificate
+PRODUCT_DEFAULT_DEV_CERTIFICATE:= build/target/product/security/devkey
+
+
 # Include firmware
 $(call inherit-product-if-exists, vendor/xiaomi/firmware/cepheus/firmware.mk)
