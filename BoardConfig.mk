@@ -206,8 +206,13 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 ENABLE_VENDOR_RIL_SERVICE := true
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
+<<<<<<< HEAD
 # Sensors
 USE_SENSOR_MULTI_HAL := true
+=======
+# Security patch level
+VENDOR_SECURITY_PATCH := 2020-08-01
+>>>>>>> 78571631f... cepheus: Bump to 12.0.2.0
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
