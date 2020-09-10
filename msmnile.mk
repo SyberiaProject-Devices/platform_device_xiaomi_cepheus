@@ -138,6 +138,7 @@ PRODUCT_COPY_FILES += \
     hardware/qcom/audio-caf/sm8150/configs/msmnile/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml
 # Binder
 PRODUCT_PACKAGES += \
+    libhwbinder \
     libhwbinder.vendor
 
 # Bluetooth
