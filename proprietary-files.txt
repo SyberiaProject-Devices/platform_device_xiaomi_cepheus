@@ -558,6 +558,7 @@ vendor/lib64/libkeymasterutils.so
 # Keystore
 vendor/lib64/libspcom.so
 
+<<<<<<< HEAD
 # Latency
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
 vendor/lib64/vendor.qti.latency@2.0.so
@@ -604,6 +605,32 @@ vendor/lib64/libvpphvx.so|ec33c14302d9ee2729f435ada8843965ea416600
 vendor/lib64/libvpplibrary.so|54c91cc37875582b5ae8dd94852d37d790c85918
 
 # Media
+=======
+# Media
+vendor/bin/hw/vendor.qti.media.c2@1.0-service
+vendor/bin/vppservice
+vendor/etc/seccomp_policy/codec2.vendor.base.policy
+vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
+vendor/etc/init/vppservice.rc
+vendor/lib/libcodec2_hidl@1.0.so
+vendor/lib/libcodec2_vndk.so
+vendor/lib/libMpeg4SwEncoder.so
+vendor/lib/libmulawdec.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxAlacDec.so
+vendor/lib/libOmxAlacDecSw.so
+vendor/lib/libOmxAmrDec.so
+vendor/lib/libOmxAmrwbplusDec.so
+vendor/lib/libOmxApeDec.so
+vendor/lib/libOmxApeDecSw.so
+vendor/lib/libOmxDsdDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxG711Dec.so
+vendor/lib/libOmxMux_proprietary.so
+vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libOmxSwVdec.so
+vendor/lib/libOmxSwVencMpeg4.so
+>>>>>>> 57afdebe... cepheus: import codec2.vendor.base.policy from coral
 vendor/lib/libOmxVpp.so
 vendor/lib/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/vendor.qti.hardware.vpp@1.2.so
