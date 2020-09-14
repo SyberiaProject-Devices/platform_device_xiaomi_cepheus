@@ -1,0 +1,24 @@
+[
+ {
+   "repository" : "EcrosoftXiao/vendor_xiaomi_cepheus",
+   "target_path": "vendor/xiaomi/cepheus",
+   "branch"     : "ten-cleanup"
+ },
+ {
+   "repository" : "EcrosoftXiao/kernel_xiaomi_sm8150",
+   "target_path": "kernel/xiaomi/cepheus",
+   "branch"     : "ten-cleanup"
+ },
+ {
+   "repository" : "EcrosoftXiao/android_hardware_xiaomi",
+   "target_path": "hardware/xiaomi",
+   "branch"     : "lineage-17.1"
+ },
+ {
+   "repository" : "EcrosoftXiao/vendor_xiaomi_firmware",
+   "target_path": "vendor/xiaomi/firmware",
+   "remote"     : "gitlab",
+   "clone-depth": "1",
+   "branch"     : "master"
+ }
+]

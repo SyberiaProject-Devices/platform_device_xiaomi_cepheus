@@ -147,7 +147,6 @@ ODM_MANIFEST_SKUS += \
 
 ODM_MANIFEST_QVA_FILES := $(DEVICE_PATH)/manifest-qva.xml
 
-
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
