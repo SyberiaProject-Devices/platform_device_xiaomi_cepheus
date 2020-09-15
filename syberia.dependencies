@@ -1,8 +1,8 @@
 [
  {
-   "repository" : "mesziman/proprietary_vendor_xiaomi-4",
+   "repository" : "mesziman/vendor_xiaomi_cepheus-5",
    "target_path": "vendor/xiaomi/cepheus",
-   "branch"     : "ten-12"
+   "branch"     : "ten"
  },
  {
    "repository" : "kdrag0n/proton-clang",
