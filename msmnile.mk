@@ -422,6 +422,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
+# Product characteristics
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # QMI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
