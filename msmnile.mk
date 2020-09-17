@@ -228,6 +228,16 @@ PRODUCT_PACKAGES += \
     libhidltransport \
     libhidltransport.vendor
 
+# Signapk
+PRODUCT_HOST_PACKAGES += \
+    signapk
+
+# VNDK
+PRODUCT_PACKAGES += \
+    libstdc++.vendor \
+    vndk-sp \
+    com.android.vndk.current.on_vendor
+
 # Insmod files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
