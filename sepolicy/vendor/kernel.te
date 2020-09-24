@@ -1,0 +1,2 @@
+# Allow kernel to create qipcrtr_socket
+allow kernel self:qipcrtr_socket create;
