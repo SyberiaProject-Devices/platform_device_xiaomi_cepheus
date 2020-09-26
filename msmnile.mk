@@ -29,11 +29,11 @@ $(call inherit-product-if-exists, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/xiaomi \
+    hardware/google/interfaces \
     hardware/google/pixel
 
 
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
-
 
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
 
@@ -626,3 +626,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
     dalvik.vm.image-dex2oat-filter=quicken \
     dalvik.vm.image-dex2oat-threads=8
+
+# pixelstats
+include hardware/google/pixel/pixelstats/device.mk
