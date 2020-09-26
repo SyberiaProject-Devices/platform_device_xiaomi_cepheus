@@ -28,6 +28,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+<<<<<<< HEAD:msmnile.mk
     hardware/xiaomi \
     hardware/google/interfaces 
 
@@ -35,6 +36,11 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
 
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
+=======
+    hardware/google/pixel \
+    hardware/google/interfaces \
+    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
+>>>>>>> 8816dbb... raphael: Build pixelstats HAL:device.mk
 
 
 #PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys-intf/bluetooth

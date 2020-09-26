@@ -51,6 +51,10 @@
 #Android NN Driver
 /(vendor|system/vendor)/bin/hw/android\.hardware\.neuralnetworks@1\.2-service-qti                      u:object_r:vendor_hal_neuralnetworks_default_exec:s0
 
+# Pixelstats
+/system/bin/hw/hardware\.google\.pixelstats@1\.0-service                                         u:object_r:pixelstats_system_exec:s0
+/vendor/bin/pixelstats-vendor                                                                    u:object_r:pixelstats_vendor_exec:s0
+
 # Remosaic
 /vendor/bin/remosaic_daemon                                          u:object_r:remosaic_daemon_exec:s0
 
