@@ -20,6 +20,7 @@ BOARD_VENDOR := xiaomi
 DEVICE_PATH := device/xiaomi/cepheus
 
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_USES_NETWORK := true
 
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true

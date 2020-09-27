@@ -41,6 +41,5 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 # FOD
 TARGET_HAS_FOD := true
 
-# Inherit from custom vendor
-$(call inherit-product, vendor/ANXCamera/config.mk)
-
+# Include firmware
+$(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)
