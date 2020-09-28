@@ -1,9 +1,17 @@
 [
  {
-   "repository" : "mesziman/vendor_xiaomi_cepheus-5",
+   "repository" : "EcrosoftXiao/vendor_xiaomi_cepheus",
    "target_path": "vendor/xiaomi/cepheus",
-   "branch"     : "ten"
+   "branch"     : "eleven"
  },
+ {
+   "repository" : "EcrosoftXiao/vendor_xiaomi_firmware",
+   "target_path": "vendor/xiaomi/firmware",
+   "remote"     : "gitlab",
+   "clone-depth": "1",
+   "branch"     : "master"
+ },
+
  {
    "repository" : "kdrag0n/proton-clang",
    "target_path": "prebuilts/clang/host/linux-x86/clang-11",
@@ -12,7 +20,7 @@
  {
    "repository" : "mesziman/kernel_xiaomi_sm8150-2",
    "target_path": "kernel/xiaomi/cepheus",
-   "branch"     : "pelt-upstream-newfod"
+   "branch"     : "11.0""
  },
  {
    "repository" : "mesziman/platform_hardware_qcom_display",

@@ -238,7 +238,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
-    vendor/revengeos/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    $(LOCAL_PATH)/fod/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # Fstab
 PRODUCT_COPY_FILES += \
@@ -325,7 +325,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_msmnile
+    android.hardware.light@2.0-service.cepheus-libperfmgr
 
 # Media
 PRODUCT_PACKAGES += \
@@ -406,7 +406,7 @@ PRODUCT_PACKAGES += \
     Tag \
     vendor.nxp.hardware.nfc@1.2-service
 
-PRODUCT_BOOT_JARS += com.nxp.nfc.nq
+#PRODUCT_BOOT_JARS += com.nxp.nfc.nq
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
@@ -431,7 +431,6 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.cepheus-libperfmgr \
     powerhint.json
 
 
@@ -446,9 +445,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.3-service.xiaomi_msmnile
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/config/msmnile/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Product characteristics
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -586,7 +582,7 @@ PRODUCT_PACKAGES += \
 #PRODUCT_BOOT_JARS += \
     WfdCommon
 
-PRODUCT_BOOT_JARS += tcmiface
+#PRODUCT_BOOT_JARS += tcmiface
 
 
 # VNDK

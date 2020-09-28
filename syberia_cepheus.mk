@@ -42,4 +42,4 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 TARGET_HAS_FOD := true
 
 # Include firmware
-$(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/firmware/cepheus/firmware.mk)
