@@ -25,11 +25,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 
-
-$(call inherit-product-if-exists, vendor/qcom/common/wfd/qti-wfd.mk)
-$(call inherit-product-if-exists, vendor/qcom/common/av/qti-av.mk)
-$(call inherit-product-if-exists, vendor/qcom/common/bt/qti-bt.mk)
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
@@ -434,11 +429,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Updater
 
-# Power
-PRODUCT_PACKAGES += \
-    powerhint.json
-
-
 # Tracing
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service.pixel
@@ -449,7 +439,11 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.3-service.xiaomi_msmnile
+    android.hardware.power@1.3-service.xiaomi-libperfmgr
+
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/power-libperfmgr/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 
 # Product characteristics
 PRODUCT_CHARACTERISTICS := nosdcard
