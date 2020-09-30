@@ -54,11 +54,14 @@ public:
 
 private:
     sp<IXiaomiFingerprint> xiaomiFingerprintService;
+
+    std::mutex mCallbackLock;
+    sp<IFingerprintInscreenCallback> mCallback;
 };
 
 }  // namespace implementation
 }  // namespace V1_0
-}  // namespace inscreenx
+}  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
 }  // namespace lineage
