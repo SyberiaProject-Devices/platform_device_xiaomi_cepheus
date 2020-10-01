@@ -404,6 +404,7 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
     SecureElement \
+    com.android.nfc_extras \
     android.hardware.nfc@1.2-service
 
 #PRODUCT_BOOT_JARS += com.nxp.nfc.nq
