@@ -781,6 +781,15 @@
         <ctl name="IIR0 INP0 MUX" value="DEC6" />
     </path>
 
+    <path name="back-mic">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="One" />
+        <ctl name="CDC_IF TX7 MUX" value="DEC7" />
+        <ctl name="ADC MUX7" value="AMIC" />
+        <ctl name="AMIC MUX7" value="ADC4" />
+        <ctl name="IIR0 INP0 MUX" value="DEC7" />
+    </path>
+
     <path name="front-mic">
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1"/>
         <ctl name="SLIM_0_TX Channels" value="One" />
@@ -3890,6 +3899,10 @@
     </path>
 
     <path name="incall_music_uplink speaker">
+        <path name="incall_music_uplink" />
+    </path>
+
+    <path name="incall_music_uplink receiver">
         <path name="incall_music_uplink" />
     </path>
 
