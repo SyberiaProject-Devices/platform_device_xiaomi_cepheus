@@ -81,8 +81,7 @@ void vendor_load_properties()
 {
     // fingerprint
     property_override("ro.build.description", "cepheus-user 10 QKQ1.190825.002 V12.0.2.0.QFAEUXM release-keys");
-    property_override_dual("ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "google/sunfish/sunfish:11/RP1A.200720.011/6746289:user/release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.product.build.fingerprint", "google/sunfish/sunfish:11/RP1A.200720.011/6746289:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:11/RP1A.201005.004/6782484:user/release-keys");
     property_override("ro.apex.updatable", "true");
 
     load_dalvikvm_properties();
