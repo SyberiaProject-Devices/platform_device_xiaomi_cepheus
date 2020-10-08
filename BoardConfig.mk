@@ -102,14 +102,6 @@ TARGET_USES_PREBUILT_CAMERA_SERVICE := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 
-
-# Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-  endif
-endif
-
 # Display
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION := true
