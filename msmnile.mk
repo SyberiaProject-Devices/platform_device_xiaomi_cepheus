@@ -36,7 +36,7 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/packages/apps/Bluetooth
 
 
-#PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
+PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys/system/bt/conf
 
 
 #PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys-intf/bluetooth
