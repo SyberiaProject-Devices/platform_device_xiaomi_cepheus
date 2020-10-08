@@ -1,7 +1,14 @@
 [
  {
-   "repository" : "EcrosoftXiao/vendor_xiaomi_cepheus",
+   "repository" : "mesziman/vendor_xiaomi_cepheus-5",
    "target_path": "vendor/xiaomi/cepheus",
+   "branch"     : "11"
+ },
+ {
+   "repository" : "EcrosoftXiao/vendor_gapps",
+   "target_path": "vendor/gapps",
+   "remote"     : "gitlab",
+   "clone-depth": "1",
    "branch"     : "eleven"
  },
  {
@@ -11,7 +18,6 @@
    "clone-depth": "1",
    "branch"     : "master"
  },
-
  {
    "repository" : "kdrag0n/proton-clang",
    "target_path": "prebuilts/clang/host/linux-x86/clang-11",
@@ -23,9 +29,9 @@
    "branch"     : "11.0""
  },
  {
-   "repository" : "mesziman/platform_hardware_qcom_display",
-   "target_path": "hardware/qcom/display-caf/sm8150",
-   "branch"     : "queen-cake-8150"
+   "repository" : "mesziman/hardware-qcom-display-caf-sm8150",
+   "target_path": "hardware/qcom-caf/sm8150/display",
+   "branch"     : "11.0"
  },
  {
    "repository" : "DarkDampSquib/vendor_MiuiCamera",
@@ -38,62 +44,23 @@
     "branch": "quartz"
  },
  {
-   "repository" : "mesziman/platform_hardware_qcom_audio",
-   "target_path": "hardware/qcom/audio-caf/sm8150",
-   "branch"     : "queen-cake-8150"
+   "repository" : "mesziman/hardware-qcom-audio-caf-sm8150",
+   "target_path": "hardware/qcom-caf/sm8150/audio",
+   "branch"     : "11.0"
  },
  {
-   "repository" : "mesziman/platform_hardware_qcom_media",
-   "target_path": "hardware/qcom/media-caf/sm8150",
-   "branch"     : "queen-cake-8150"
+   "repository" : "mesziman/hardware-qcom-media-caf-sm8150",
+   "target_path": "hardware/qcom-caf/sm8150/media",
+   "branch"     : "11.0"
  },
 {
    "repository" : "LineageOS/android_hardware_qcom-caf_common",
    "target_path": "hardware/qcom/common",
-   "branch"     : "lineage-17.1"
- },
- {
-   "repository" : "LineageOS/android_vendor_nxp_interfaces_opensource_nfc",
-   "target_path": "vendor/nxp/opensource/interfaces/nfc",
-   "branch"     : "lineage-17.1"
- },
- {
-   "repository" : "tribual81/android_vendor_nxp_opensource_external_libnfc-nci",
-   "target_path": "vendor/nxp/opensource/commonsys/external/libnfc-nci",
-   "remote"     : "gitlab",
-   "branch"     : "lineage-17.0"
- },
- {
-   "repository" : "tribual81/android_vendor_nxp_opensource_frameworks",
-   "target_path": "vendor/nxp/opensource/commonsys/frameworks",
-   "remote"     : "gitlab",
-   "branch"     : "lineage-17.0"
- },
- {
-   "repository" : "tribual81/android_vendor_nxp_opensource_packages_apps_Nfc",
-   "target_path": "vendor/nxp/opensource/commonsys/packages/apps/Nfc",
-   "remote"     : "gitlab",
-   "branch"     : "lineage-17.0"
- },
- {
-   "repository" : "tribual81/android_vendor_nxp_opensource_halimpl",
-   "target_path": "vendor/nxp/opensource/sn100x/halimpl",
-   "remote"     : "gitlab",
-   "branch"     : "lineage-17.0-sn100x"
- },
- {
-   "repository" : "LineageOS/android_vendor_nxp_opensource_hidlimpl",
-   "target_path": "vendor/nxp/opensource/hidlimpl",
-   "branch"     : "lineage-17.1-sn100x"
+   "branch"     : "lineage-18.0"
  },
  {
    "repository": "LineageOS/android_packages_resources_devicesettings",
    "target_path": "packages/resources/devicesettings",
-   "branch": "lineage-17.1"
+   "branch": "lineage-18.0"
  },
- {
-   "repository": "SOVIET-ANDROID/platform_vendor_google-customization",
-   "target_path": "vendor/google-customization",
-   "branch":      "10.0"
- }
 ]
