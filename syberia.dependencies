@@ -7,16 +7,16 @@
  {
    "repository" : "EcrosoftXiao/vendor_gapps",
    "target_path": "vendor/gapps",
+   "branch"     : "eleven",
    "remote"     : "gitlab",
-   "clone-depth": "1",
-   "branch"     : "eleven"
+   "clone-depth": "1"
  },
  {
    "repository" : "EcrosoftXiao/vendor_xiaomi_firmware",
    "target_path": "vendor/xiaomi/firmware",
+   "branch"     : "master",
    "remote"     : "gitlab",
-   "clone-depth": "1",
-   "branch"     : "master"
+   "clone-depth": "1"
  },
  {
    "repository" : "kdrag0n/proton-clang",
