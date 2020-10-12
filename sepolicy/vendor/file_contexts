@@ -26,7 +26,7 @@
 # IR
 /dev/lirc0                                    u:object_r:ir_dev_file:s0
 # Health
-/vendor/bin/hw/android\.hardware\.health@2\.1-service\.raphael                                   u:object_r:hal_health_default_exec:s0
+/vendor/bin/hw/android\.hardware\.health@2\.1-service\.cepheus                                   u:object_r:hal_health_default_exec:s0
 
 # Mlipay
 /(vendor|system/vendor)/bin/mlipayd@1\.1       u:object_r:hal_mlipay_default_exec:s0

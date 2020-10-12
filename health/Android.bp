@@ -15,8 +15,8 @@
  */
 
 cc_library_shared {
-    name: "android.hardware.health@2.1-impl-raphael",
-    stem: "android.hardware.health@2.0-impl-2.1-raphael",
+    name: "android.hardware.health@2.1-impl-cepheus",
+    stem: "android.hardware.health@2.0-impl-2.1-cepheus",
 
     proprietary: true,
     relative_install_path: "hw",
