@@ -333,7 +333,7 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.cepheus
+    android.hardware.lights-service.cepheus
 
 # Media
 PRODUCT_PACKAGES += \
@@ -616,6 +616,9 @@ include vendor/qcom/opensource/commonsys-intf/display/config/display-product-sys
 PRODUCT_PACKAGES += \
     Updater
 
+# IORap app launch prefetching using Perfetto traces and madvise
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.iorapd.enable=true
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
