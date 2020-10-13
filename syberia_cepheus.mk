@@ -20,7 +20,7 @@ $(call inherit-product, vendor/syberia/common.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
-
+IS_PHONE := true
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := syberia_cepheus
 PRODUCT_DEVICE := cepheus
