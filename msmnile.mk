@@ -602,6 +602,7 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libdisplayconfig.vendor \
     libnl \
+    libqdMetaData.vendor \
     libqdMetaData \
     libqdMetaData.system
 
