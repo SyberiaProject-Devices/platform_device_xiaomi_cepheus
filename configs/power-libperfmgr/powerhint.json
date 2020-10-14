@@ -73,6 +73,7 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
+        "585000000",
         "427000000",
         "257000000"
       ],
