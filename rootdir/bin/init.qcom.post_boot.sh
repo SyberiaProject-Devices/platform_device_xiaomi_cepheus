@@ -92,6 +92,8 @@ function configure_memory_parameters() {
 
 case "$target" in
     "msmnile")
+    echo 1 > /proc/sys/kernel/sched_energy_aware
+
     # Setting b.L scheduler parameters
     echo 95 95 > /proc/sys/kernel/sched_upmigrate
     echo 85 85 > /proc/sys/kernel/sched_downmigrate
@@ -100,7 +102,7 @@ case "$target" in
     echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
     # cpuset parameters
-    echo 0-1 > /dev/cpuset/background/cpus
+    echo 0-3 > /dev/cpuset/background/cpus
     echo 0-7 > /dev/cpuset/top-app/cpus
     echo 0-3,5-6 > /dev/cpuset/foreground/cpus
     echo 0-3 > /dev/cpuset/system-background/cpus

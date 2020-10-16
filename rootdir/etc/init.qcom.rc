@@ -34,7 +34,7 @@ on early-init
     chmod 0755 /sys/kernel/debug/tracing
 
     # Disable EAS
-    write /sys/kernel/debug/sched_features NO_ENERGY_AWARE
+    write /proc/sys/kernel/sched_energy_aware 0
 
 
     # Change ownership of hw_recovery related nodes
@@ -268,7 +268,7 @@ service vendor.ssr_setup /vendor/bin/ssr_setup
 
 on property:sys.boot_completed=1
     # Enable EAS
-    write /sys/kernel/debug/sched_features ENERGY_AWARE
+    write /proc/sys/kernel/sched_energy_aware 1
 
     chown media audio /sys/kernel/wdsp0/boot
 
@@ -378,4 +378,4 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
 
 on charger
     # Enable EAS
-    write /sys/kernel/debug/sched_features ENERGY_AWARE
+    write /proc/sys/kernel/sched_energy_aware 1
