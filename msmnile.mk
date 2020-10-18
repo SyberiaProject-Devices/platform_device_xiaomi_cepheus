@@ -463,7 +463,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.xiaomi-libperfmgr
+    android.hardware.power-service.xiaomi-libperfmgr \
+    android.hardware.power.stats@1.0-service.xiaomi
 
 PRODUCT_COPY_FILES += \
    $(LOCAL_PATH)/configs/power-libperfmgr/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
