@@ -215,7 +215,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl-qti-display
 
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.mapper@3.0.vendor
+    vendor.qti.hardware.display.mapper@3.0.vendor \
+    vendor.display.config@2.0 \
+    vendor.display.config@2.0.vendor
 
 PRODUCT_PACKAGES += \
     gralloc.msmnile \
@@ -382,6 +384,8 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libavservices_minijail \
+    libavservices_minijail_32 \
     libavservices_minijail_vendor
 
 PRODUCT_COPY_FILES += \
