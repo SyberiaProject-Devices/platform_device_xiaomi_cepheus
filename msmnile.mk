@@ -81,6 +81,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.0 \
     android.hardware.radio.deprecated@1.0 \
     android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.2 \
     libprotobuf-cpp-full
 
 PRODUCT_PACKAGES += \
@@ -540,7 +541,9 @@ PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
     qti_telephony_utils.xml \
-    telephony-ext
+    telephony-ext \
+    TelephonyResRaphael
+
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
