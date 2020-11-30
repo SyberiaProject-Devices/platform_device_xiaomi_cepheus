@@ -345,8 +345,15 @@ vendor/lib64/libmmcamera_faceproc2.so
 vendor/bin/hvdcp_opti
 
 # Configstore
+<<<<<<< HEAD
 -vendor/lib/libplatformconfig.so
 -vendor/lib64/libplatformconfig.so
+=======
+vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
+vendor/etc/configstore/vpp.configstore.xml
+vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
+vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
+>>>>>>> 9e9ee9d... cepheus: Switch to OSS libplatformconfig
 
 # Consumerir
 vendor/lib64/hw/consumerir.default.so

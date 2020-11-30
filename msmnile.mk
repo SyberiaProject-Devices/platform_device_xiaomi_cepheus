@@ -379,6 +379,7 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libgui_vendor \
     libstagefrighthw \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
     android.hardware.media.omx@1.0-impl
 
 # Media
@@ -634,4 +635,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-threads=8
 
 # pixelstats
-include hardware/google/pixel/pixelstats/device.mk
+include hardware/xiaomi/hidl/pixelstats/device.mk

@@ -40,6 +40,5 @@ TARGET_FACE_UNLOCK_SUPPORTED := true
 IS_PHONE := true
 # FOD
 TARGET_HAS_FOD := true
-$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 # Include firmware
 $(call inherit-product-if-exists, vendor/xiaomi/firmware/cepheus/firmware.mk)
