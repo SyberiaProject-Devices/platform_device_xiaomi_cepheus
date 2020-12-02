@@ -26,7 +26,7 @@
  {
    "repository" : "mesziman/kernel_xiaomi_sm8150-2",
    "target_path": "kernel/xiaomi/cepheus",
-   "branch"     : "11.0""
+   "branch"     : "eleven"
  },
  {
    "repository" : "mesziman/hardware-qcom-display-caf-sm8150",
