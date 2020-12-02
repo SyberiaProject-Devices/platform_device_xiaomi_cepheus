@@ -80,25 +80,12 @@ static const T1* loadLocationInterface(const char* library, const char* name) {
     }
 }
 
-static bool needsGnssTrackingInfo(LocationCallbacks& locationCallbacks)
-{
-    return (locationCallbacks.gnssLocationInfoCb != nullptr ||
-            locationCallbacks.engineLocationsInfoCb != nullptr ||
-            locationCallbacks.gnssSvCb != nullptr ||
-            locationCallbacks.gnssNmeaCb != nullptr ||
-            locationCallbacks.gnssDataCb != nullptr ||
-            locationCallbacks.gnssMeasurementsCb != nullptr);
-}
-
 static bool isGnssClient(LocationCallbacks& locationCallbacks)
 {
     return (locationCallbacks.gnssNiCb != nullptr ||
             locationCallbacks.trackingCb != nullptr ||
             locationCallbacks.gnssLocationInfoCb != nullptr ||
             locationCallbacks.engineLocationsInfoCb != nullptr ||
-            locationCallbacks.gnssSvCb != nullptr ||
-            locationCallbacks.gnssNmeaCb != nullptr ||
-            locationCallbacks.gnssDataCb != nullptr ||
             locationCallbacks.gnssMeasurementsCb != nullptr ||
             locationCallbacks.locationSystemInfoCb != nullptr);
 }
@@ -690,7 +677,7 @@ LocationControlAPI::disable(uint32_t id)
 }
 
 uint32_t*
-LocationControlAPI::gnssUpdateConfig(const GnssConfig& config)
+LocationControlAPI::gnssUpdateConfig(GnssConfig config)
 {
     uint32_t* ids = NULL;
     pthread_mutex_lock(&gDataMutex);
@@ -738,15 +725,12 @@ LocationControlAPI::gnssDeleteAidingData(GnssAidingData& data)
     return id;
 }
 
-uint32_t LocationControlAPI::configConstellations(
-        const GnssSvTypeConfig& constellationEnablementConfig,
-        const GnssSvIdConfig&   blacklistSvConfig) {
+uint32_t LocationControlAPI::resetConstellationConfig() {
     uint32_t id = 0;
     pthread_mutex_lock(&gDataMutex);
 
     if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->gnssUpdateSvConfig(
-                constellationEnablementConfig, blacklistSvConfig);
+        id = gData.gnssInterface->gnssResetSvConfig();
     } else {
         LOC_LOGe("No gnss interface available for Location Control API");
     }
@@ -755,13 +739,15 @@ uint32_t LocationControlAPI::configConstellations(
     return id;
 }
 
-uint32_t LocationControlAPI::configConstellationSecondaryBand(
-        const GnssSvTypeConfig& secondaryBandConfig) {
+uint32_t LocationControlAPI::configConstellations(
+        const GnssSvTypeConfig& svTypeConfig,
+        const GnssSvIdConfig&   svIdConfig) {
     uint32_t id = 0;
     pthread_mutex_lock(&gDataMutex);
 
     if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->gnssUpdateSecondaryBandConfig(secondaryBandConfig);
+        id = gData.gnssInterface->gnssUpdateSvConfig(
+                svTypeConfig, svIdConfig);
     } else {
         LOC_LOGe("No gnss interface available for Location Control API");
     }
@@ -821,35 +807,6 @@ uint32_t LocationControlAPI::configRobustLocation(bool enable, bool enableForE91
 
     if (gData.gnssInterface != NULL) {
         id = gData.gnssInterface->configRobustLocation(enable, enableForE911);
-    } else {
-        LOC_LOGe("No gnss interface available for Location Control API");
-    }
-
-    pthread_mutex_unlock(&gDataMutex);
-    return id;
-}
-
-uint32_t LocationControlAPI::configMinGpsWeek(uint16_t minGpsWeek) {
-    uint32_t id = 0;
-    pthread_mutex_lock(&gDataMutex);
-
-    if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->configMinGpsWeek(minGpsWeek);
-    } else {
-        LOC_LOGe("No gnss interface available for Location Control API");
-    }
-
-    pthread_mutex_unlock(&gDataMutex);
-    return id;
-}
-
-uint32_t LocationControlAPI::configDeadReckoningEngineParams(
-        const DeadReckoningEngineConfig& dreConfig) {
-    uint32_t id = 0;
-    pthread_mutex_lock(&gDataMutex);
-
-    if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->configDeadReckoningEngineParams(dreConfig);
     } else {
         LOC_LOGe("No gnss interface available for Location Control API");
     }
