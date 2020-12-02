@@ -89,9 +89,6 @@ const char LOC_PATH_SAP_CONF[] = LOC_PATH_SAP_CONF_STR;
 const char LOC_PATH_APDR_CONF[] = LOC_PATH_APDR_CONF_STR;
 const char LOC_PATH_XTWIFI_CONF[] = LOC_PATH_XTWIFI_CONF_STR;
 const char LOC_PATH_QUIPC_CONF[] = LOC_PATH_QUIPC_CONF_STR;
-const char LOC_PATH_ANT_CORR[] = LOC_PATH_ANT_CORR_STR;
-const char LOC_PATH_SLIM_CONF[] = LOC_PATH_SLIM_CONF_STR;
-const char LOC_PATH_VPE_CONF[] = LOC_PATH_VPE_CONF_STR;
 
 bool isVendorEnhanced() {
     return sVendorEnhanced;
@@ -655,8 +652,7 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
     }
 
     //Set service mask for SAP
-    if(strcmp(conf.feature_sap, "PREMIUM") == 0 ||
-       strcmp(conf.feature_sap, "PREMIUM_ENV_AIDING") == 0) {
+    if (strcmp(conf.feature_sap, "PREMIUM") == 0) {
         LOC_LOGD("%s:%d]: Setting SAP to mode: PREMIUM", __func__, __LINE__);
         loc_service_mask |= LOC_FEATURE_MASK_SAP_PREMIUM;
     }
@@ -666,15 +662,9 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
     }
     else if (strcmp(conf.feature_sap, "MODEM_DEFAULT") == 0) {
         LOC_LOGD("%s:%d]: Setting SAP to mode: MODEM_DEFAULT", __func__, __LINE__);
-        loc_service_mask |= LOC_FEATURE_MASK_SAP_BASIC;
     }
     else if (strcmp(conf.feature_sap, "DISABLED") == 0) {
-#ifdef USE_GLIB
-        /* Enable slim_daemon even when SAP is set to DISABLED*/
-        loc_service_mask |= LOC_FEATURE_MASK_SAP_BASIC;
-#else
         LOC_LOGD("%s:%d]: Setting SAP to mode: DISABLED", __func__, __LINE__);
-#endif
     }
     else {
        LOC_LOGE("%s:%d]: Unrecognized value for SAP Mode."\
@@ -975,7 +965,7 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
             i = 0;
             char* temp_arg = ('/' == child_proc[j].name[0][0]) ?
                 (strrchr(child_proc[j].name[0], '/') + 1) : child_proc[j].name[0];
-            strlcpy (child_proc[j].args[i++], temp_arg, sizeof (child_proc[j].args[0]));
+            strlcpy (child_proc[j].args[i++], temp_arg, sizeof (child_proc[j].args[i++]));
 
             if(conf.premium_feature) {
                if(conf.loc_feature_mask & loc_service_mask) {

@@ -360,7 +360,6 @@ void LocIpc::stopNonBlockingListening() {
         mRunnable->abort();
         mRunnable = nullptr;
     }
-    mThread.stop();
 }
 
 void LocIpc::stopBlockingListening(LocIpcRecver& ipcRecver) {
@@ -389,17 +388,15 @@ shared_ptr<LocIpcSender> LocIpc::getLocIpcQrtrSender(int service, int instance) 
     return (nullptr == creator) ? nullptr : creator(service, instance);
 }
 unique_ptr<LocIpcRecver> LocIpc::getLocIpcQrtrRecver(const shared_ptr<ILocIpcListener>& listener,
-                                                     int service, int instance,
-                                                     const shared_ptr<LocIpcQrtrWatcher>& watcher) {
-    typedef unique_ptr<LocIpcRecver> (*creator_t)(const shared_ptr<ILocIpcListener>&, int, int,
-                                                  const shared_ptr<LocIpcQrtrWatcher>& watcher);
+                                                     int service, int instance) {
+    typedef unique_ptr<LocIpcRecver> (*creator_t)(const shared_ptr<ILocIpcListener>&, int, int);
     static creator_t creator = (creator_t)dlGetSymFromLib(sLibQrtrHandle, sLibQrtrName,
 #ifdef USE_GLIB
-            "_ZN8loc_util22createLocIpcQrtrRecverERKSt10shared_ptrINS_15ILocIpcListenerEEiiRKS0_INS_17LocIpcQrtrWatcherEE");
+            "_ZN8loc_util22createLocIpcQrtrRecverERKSt10shared_ptrINS_15ILocIpcListenerEEii");
 #else
-            "_ZN8loc_util22createLocIpcQrtrRecverERKNSt3__110shared_ptrINS_15ILocIpcListenerEEEiiRKNS1_INS_17LocIpcQrtrWatcherEEE");
+            "_ZN8loc_util22createLocIpcQrtrRecverERKNSt3__110shared_ptrINS_15ILocIpcListenerEEEii");
 #endif
-    return (nullptr == creator) ? nullptr : creator(listener, service, instance, watcher);
+    return (nullptr == creator) ? nullptr : creator(listener, service, instance);
 }
 shared_ptr<LocIpcSender> LocIpc::getLocIpcInetTcpSender(const char* serverName, int32_t port) {
     return make_shared<LocIpcInetTcpSender>(serverName, port);
@@ -420,13 +417,7 @@ pair<shared_ptr<LocIpcSender>, unique_ptr<LocIpcRecver>>
     typedef pair<shared_ptr<LocIpcSender>, unique_ptr<LocIpcRecver>> (*creator_t)(const shared_ptr<ILocIpcListener>&, int);
     static void* sLibEmuHandle = nullptr;
     static creator_t creator = (creator_t)dlGetSymFromLib(sLibEmuHandle, "libloc_emu.so",
-#ifdef USE_GLIB
-            "_ZN13QmiLocService41createLocIpcQmiLocServiceSenderRecverPair"\
-            "ERKSt10shared_ptrIN8loc_util15ILocIpcListenerEEi");
-#else
-            "_ZN13QmiLocService41createLocIpcQmiLocServiceSenderRecverPair"\
-            "ERKNSt3__110shared_ptrIN8loc_util15ILocIpcListenerEEEi");
-#endif
+            "_ZN13QmiLocService41createLocIpcQmiLocServiceSenderRecverPairERKNSt3__110shared_ptrIN8loc_util15ILocIpcListenerEEEi");
     return (nullptr == creator) ?
             make_pair<shared_ptr<LocIpcSender>, unique_ptr<LocIpcRecver>>(nullptr, nullptr) :
             creator(listener, instance);

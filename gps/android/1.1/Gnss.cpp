@@ -111,7 +111,7 @@ Gnss::Gnss() {
 Gnss::~Gnss() {
     ENTRY_LOG_CALLFLOW();
     if (mApi != nullptr) {
-        mApi->destroy();
+        delete mApi;
         mApi = nullptr;
     }
     sGnss = nullptr;
@@ -151,7 +151,7 @@ const GnssInterface* Gnss::getGnssInterface() {
         if (nullptr == getter) {
             getGnssInterfaceFailed = true;
         } else {
-            mGnssInterface = (const GnssInterface*)(*getter)();
+            mGnssInterface = (GnssInterface*)(*getter)();
         }
     }
     return mGnssInterface;
@@ -216,7 +216,7 @@ Return<bool> Gnss::updateConfiguration(GnssConfig& gnssConfig) {
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPP_PROFILE_VALID_BIT;
-            mPendingConfig.lppProfileMask = gnssConfig.lppProfileMask;
+            mPendingConfig.lppProfile = gnssConfig.lppProfile;
         }
         if (gnssConfig.flags & GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT) {
             mPendingConfig.flags |= GNSS_CONFIG_FLAGS_LPPE_CONTROL_PLANE_VALID_BIT;
