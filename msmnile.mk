@@ -252,8 +252,8 @@ PRODUCT_COPY_FILES += \
 # GPS
 PRODUCT_PACKAGES += \
     PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1-impl-qti \
-    android.hardware.gnss@2.1-service-qti \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
     libbatching \
     libgeofencing \
     libgnss \
@@ -299,11 +299,7 @@ PRODUCT_PACKAGES += \
     vndk-sp \
     com.android.vndk.current.on_vendor
 
-# Insmod files
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
-
-# HotwordEnrollement
+# Hotword Enrollment
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hotword-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hotword-hiddenapi-package-whitelist.xml \
     $(LOCAL_PATH)/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
@@ -323,8 +319,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.target.rc \
-    ueventd.qcom.rc \
-    init.insmod.sh
+    ueventd.qcom.rc
 
 # IPA
 PRODUCT_PACKAGES += \
