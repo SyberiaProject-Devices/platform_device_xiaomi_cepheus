@@ -625,5 +625,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.image-dex2oat-filter=quicken \
     dalvik.vm.image-dex2oat-threads=8
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+     vendor.lineage.livedisplay@2.0-service-sdm \
+     vendor.lineage.livedisplay@2.0-service.cepheus
+#
+
 # pixelstats
 include hardware/xiaomi/hidl/pixelstats/device.mk
