@@ -271,7 +271,7 @@ on property:sys.boot_completed=1
     write /proc/sys/kernel/sched_energy_aware 1
 
     chown media audio /sys/kernel/wdsp0/boot
-
+    start affinity
     start qcom-post-boot
 
 on property:persist.sys.device_provisioned=1
@@ -315,6 +315,13 @@ service cnss-daemon /vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
     capabilities NET_ADMIN
+
+service affinity /vendor/etc/init.affinity.sh
+    class late_start
+    user root
+    group root system wakelock graphics
+    disabled
+    oneshot
 
 on property:sys.shutdown.requested=*
     write /sys/kernel/shutdown_wlan/shutdown 1
