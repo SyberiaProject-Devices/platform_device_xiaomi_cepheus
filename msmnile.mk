@@ -58,11 +58,6 @@ TARGET_SCREEN_DENSITY := 440
 PRODUCT_PACKAGES += \
     fs_config_files
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService-Soong \
-    com.dsi.ant.antradio_library \
-    com.dsi.ant@1.0
 
 PRODUCT_COPY_FILES += \
     external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
