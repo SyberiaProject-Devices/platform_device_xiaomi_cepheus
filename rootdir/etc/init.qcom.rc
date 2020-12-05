@@ -268,6 +268,7 @@ service vendor.ssr_setup /vendor/bin/ssr_setup
 
 on property:sys.boot_completed=1
     # Enable EAS
+    chown media audio /sys/kernel/wdsp0/boot
     write /proc/sys/kernel/sched_energy_aware 1
 
     chown media audio /sys/kernel/wdsp0/boot
@@ -302,8 +303,7 @@ service vendor.tftp_server /vendor/bin/tftp_server
 service vendor.sensors /vendor/bin/sscrpcd sensorspd
     class early_hal
     user system
-    group system wakelock
-    capabilities BLOCK_SUSPEND
+    group system
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
@@ -369,19 +369,11 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     user audioserver
     # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
     group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock
-    capabilities BLOCK_SUSPEND SYS_NICE
+    capabilities BLOCK_SUSPEND
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
     socket audio_hw_socket seqpacket 0666 system system
     onrestart restart audioserver
-
-service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
-    override
-    class hal
-    interface android.hardware.contexthub@1.0::IContexthub default
-    user system
-    group system
-    disabled
 
 on charger
     # Enable EAS
