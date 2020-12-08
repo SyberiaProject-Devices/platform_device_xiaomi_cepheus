@@ -41,4 +41,7 @@ IS_PHONE := true
 # FOD
 TARGET_HAS_FOD := true
 # Include firmware
+
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
+
 $(call inherit-product-if-exists, vendor/xiaomi/firmware/cepheus/firmware.mk)
