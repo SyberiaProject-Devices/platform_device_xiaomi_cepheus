@@ -246,3 +246,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 #VDNK
 #DEVICE_FRAMEWORK_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/framework_manifest.xml
 BOARD_VNDK_VERSION := current
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    system/lib/libcameraservice.so|libmedia_jni_shim.so

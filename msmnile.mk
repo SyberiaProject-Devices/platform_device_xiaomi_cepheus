@@ -610,7 +610,7 @@ PRODUCT_PACKAGES += \
 
 TARGET_COMMON_QTI_COMPONENTS := \
     bt \
-	gps \
+    gps \
     telephony \
     perf \
     wfd
@@ -618,6 +618,11 @@ TARGET_COMMON_QTI_COMPONENTS := \
 include vendor/qcom/opensource/commonsys-intf/display/config/display-interfaces-product.mk
 include vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk
 #PRODUCT_BOOT_JARS += WfdCommon
+
+
+# Camera
+PRODUCT_PACKAGES += \
+    libmedia_jni_shim
 
 # OTA
 PRODUCT_PACKAGES += \
