@@ -236,6 +236,8 @@ on post-fs-data
 
     # Make MTU adjusting
     write /proc/sys/net/ipv4/tcp_mtu_probing 1
+    # Create dir for TUI
+    mkdir /data/vendor/tui 0700 system drmrpc
 
     setprop vold.post_fs_data_done 1
 
