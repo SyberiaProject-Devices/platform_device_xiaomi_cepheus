@@ -554,6 +554,7 @@ vendor/lib64/vendor.qti.gnss@4.0-service.so
 vendor/lib64/vendor.qti.gnss@4.0.so
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 
+<<<<<<< HEAD
 # GPS (configs)
 vendor/etc/apdr.conf
 vendor/etc/flp.conf
@@ -619,6 +620,17 @@ vendor/firmware/a640_zap.mdt
 # IRQ balance
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
+=======
+# IPA-Firmware
+vendor/firmware/ipa_fws.b00
+vendor/firmware/ipa_fws.b01
+vendor/firmware/ipa_fws.b02
+vendor/firmware/ipa_fws.b03
+vendor/firmware/ipa_fws.b04
+vendor/firmware/ipa_fws.elf
+vendor/firmware/ipa_fws.mdt
+vendor/etc/init/ipa_fws.rc
+>>>>>>> 38a118429... raphael: Build ipacm from source
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
