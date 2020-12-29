@@ -1,5 +1,3 @@
-type ir_dev_file, file_type;
+type ir_spi_device, dev_type, file_type;
 
-allow hal_ir_default ir_dev_file:chr_file { open read write ioctl };
-allow ueventd ir_dev_file:chr_file { create getattr };
-
+allow hal_ir_default ir_spi_device:chr_file rw_file_perms;

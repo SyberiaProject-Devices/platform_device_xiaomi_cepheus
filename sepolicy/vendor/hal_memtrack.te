@@ -1,2 +1,0 @@
-# Allow hal_memtrack to search sysfs_kgsl
-allow hal_memtrack vendor_sysfs_kgsl:dir search;

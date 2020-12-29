@@ -608,10 +608,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData \
     libqdMetaData.system
 
-#PRODUCT_BOOT_JARS += \
+PRODUCT_BOOT_JARS += \
     WfdCommon
 
-#PRODUCT_BOOT_JARS += tcmiface
+PRODUCT_BOOT_JARS += tcmiface
 
 # XiaomiParts
 PRODUCT_PACKAGES += \
