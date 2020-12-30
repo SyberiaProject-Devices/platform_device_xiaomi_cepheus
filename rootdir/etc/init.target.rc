@@ -124,11 +124,20 @@ service boot_lc_main /system/bin/logcat -f /cache/boot_lc_main.txt
     disabled
     oneshot
 
+service boot_lc_after /system/bin/logcat -f /cache/lc_main.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+
+
 
 on property:sys.boot_completed=1
     stop boot_lc_main
     stop boot_dmesg
-
+    start boot_lc_after
     # Runtime fs tuning
     write /sys/block/sda/queue/read_ahead_kb 128
     write /sys/block/sda/queue/nr_requests 128
