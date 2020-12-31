@@ -17,6 +17,14 @@ persist.vendor.camera.enableNCSService=TRUE
 persist.vendor.camera.enableTOFInterface=TRUE
 persist.vendor.camera.mfnrframenum=8
 persist.vendor.camera.multicam=TRUE
+ro.miui.notch=1
+
+# CNE and DPM
+persist.vendor.cne.feature=1
+persist.vendor.dpm.feature=9
+persist.vendor.dpm.loglevel=0
+persist.vendor.dpm.nsrm.bkg.evt=3955
+persist.vendor.dpmhalservice.enable=1
 
 # Display density
 ro.sf.lcd_density=440
@@ -97,3 +105,9 @@ ro.surface_flinger.protected_contents=true
 
 # WiFi
 wifi.interface=wlan0
+
+ro.rom.zone=2
+ro.miui.has_gmscore=1
+ro.miui.build.region=eea
+ro.miui.ui.version.code=9
+ro.miui.ui.version.name=V11

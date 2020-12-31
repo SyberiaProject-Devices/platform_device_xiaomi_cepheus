@@ -101,9 +101,14 @@ vendor.audio_hal.period_size=192
 persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac
 persist.bluetooth.a2dp_offload.disabled=false
 persist.vendor.bt.aac_frm_ctl.enabled=false
+persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac
+persist.vendor.btstack.connect.peer_earbud=true
+persist.vendor.btstack.enable.twsplus=true
+persist.vendor.btstack.enable.twsplussho=true
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptive
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.enable.splita2dp=true
+persist.vendor.qcom.bluetooth.twsp_state.enabled=true
 persist.vendor.qcom.bluetooth.scram.enabled=true
 persist.vendor.qcom.bluetooth.soc=cherokee
 persist.vendor.qcom.bluetooth.twsp_state.enabled=false
@@ -202,6 +207,11 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.report_codec=1
 persist.vendor.radio.sib16_support=1
+persist.radio.NO_STAPA=1
+persist.radio.sar_sar_sensor=true
+persist.radio.VT_HYBRID_ENABLE=1
+persist.sys.fflag.override.settings_network_and_internet_v2=true
+persist.vendor.radio.mt_sms_ack=30
 
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
@@ -209,6 +219,9 @@ persist.vendor.uspsensor=default
 
 # Zygote preforking
 persist.device_config.runtime_native.usap_pool_enabled=true
+
+#Vulcan render
+debug.hwui.renderer=skiavk
 
 # WiFi
 wifi.aware.interface=wifi-aware0
