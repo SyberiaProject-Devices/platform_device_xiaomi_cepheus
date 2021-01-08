@@ -35,13 +35,19 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 SYBERIA_BUILD_TYPE := OFFICIAL
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
 # FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
+
 IS_PHONE := true
+
 # FOD
 TARGET_HAS_FOD := true
-# Include firmware
+
+# FOD animations
+TARGET_WANTS_FOD_ANIMATIONS := true
 
 #$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 
+# Include firmware
 $(call inherit-product-if-exists, vendor/xiaomi/firmware/cepheus/firmware.mk)
