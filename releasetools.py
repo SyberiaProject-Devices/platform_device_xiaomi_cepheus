@@ -1,5 +1,6 @@
 # Copyright (C) 2009 The Android Open Source Project
-# Copyright (C) 2019 The LineageOS Open Source Project
+# Copyright (C) 2019 The Mokee Open Source Project
+# Copyright (C) 2020 The LineageOS Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,11 +18,15 @@ import common
 import re
 
 def FullOTA_InstallEnd(info):
-  OTA_InstallEnd(info, False)
+  input_zip = info.input_zip
+  OTA_UpdateFirmware(info)
+  OTA_InstallEnd(info, input_zip)
   return
 
 def IncrementalOTA_InstallEnd(info):
-  OTA_InstallEnd(info, True)
+  input_zip = info.target_zip
+  OTA_UpdateFirmware(info)
+  OTA_InstallEnd(info, input_zip)
   return
 
 def OTA_UpdateFirmware(info):
@@ -56,18 +61,18 @@ def OTA_UpdateFirmware(info):
   info.script.AppendExtra('package_extract_file("install/firmware-update/xbl_config.elf", "/dev/block/bootdevice/by-name/xbl_config");')
   info.script.AppendExtra('package_extract_file("install/firmware-update/xbl_config.elf", "/dev/block/bootdevice/by-name/xbl_configbak");')
 
-def AddImage(info, basename, dest, incremental):
-  name = basename
-  if incremental:
-    input_zip = info.source_zip
-  else:
-    input_zip = info.input_zip
-  data = input_zip.read("IMAGES/" + basename)
-  common.ZipWriteStr(info.output_zip, name, data)
-  info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
+def AddImage(info, input_zip, basename, dest):
+  path = "IMAGES/" + basename
+  if path not in input_zip.namelist():
+    return
 
+  data = input_zip.read(path)
+  common.ZipWriteStr(info.output_zip, basename, data)
+  info.script.Print("Flashing {} image".format(dest.split('/')[-1]))
+  info.script.AppendExtra('package_extract_file("%s", "%s");' % (basename, dest))
 
-def OTA_InstallEnd(info, incremental):
+def OTA_InstallEnd(info, input_zip):
   info.script.Print("Patching firmware images...")
-  AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo", incremental)
+  AddImage(info, input_zip, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
+  AddImage(info, input_zip, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
   return
