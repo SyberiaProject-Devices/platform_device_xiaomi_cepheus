@@ -46,9 +46,8 @@ function configure_memory_parameters() {
     #
     # Set allocstall_threshold to 0 for all targets.
     #
-
     # Set Zram disk size=1GB for >=2GB Non-Go targets.
-    echo 536870912 > /sys/block/zram0/disksize
+    echo 2147483648 > /sys/block/zram0/disksize
     mkswap /dev/block/zram0
     swapon /dev/block/zram0 -p 32758
 
