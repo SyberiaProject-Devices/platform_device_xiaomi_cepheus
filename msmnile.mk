@@ -387,6 +387,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libavservices_minijail \
     libavservices_minijail_32 \
+    libavservices_minijail.vendor \
     libavservices_minijail_vendor
 
 PRODUCT_COPY_FILES += \
