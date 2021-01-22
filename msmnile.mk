@@ -308,6 +308,10 @@ PRODUCT_PRODUCT_VNDK_VERSION := current
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
+# VNDK
+PRODUCT_PACKAGES += \
+    vndk_package
+
 PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vndk-sp \
