@@ -345,7 +345,9 @@ PRODUCT_PACKAGES += \
 # IPA
 PRODUCT_PACKAGES += \
     ipacm \
-    IPACM_cfg.xml
+    IPACM_cfg.xml \
+    libipanat \
+    liboffloadhal
 
 # IR
 PRODUCT_PACKAGES += \
@@ -659,7 +661,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
      vendor.lineage.livedisplay@2.0-service-sdm \
      vendor.lineage.livedisplay@2.0-service.cepheus
-#
 
 # pixelstats
 include hardware/xiaomi/hidl/pixelstats/device.mk
