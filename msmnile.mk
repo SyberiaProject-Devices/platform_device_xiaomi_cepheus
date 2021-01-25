@@ -623,10 +623,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libdisplayconfig \
     libdisplayconfig.vendor \
+    libdisplayconfig.qti \
     libnl \
     libqdMetaData.vendor \
     libqdMetaData \
-    libqdMetaData.system
+    libqdMetaData.system \
+    libwfdaac
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
