@@ -3,6 +3,8 @@ persist.bt.enableAptXHD=true
 persist.service.btui.use_aptx=1
 persist.vendor.bt.a2dp.aac_whitelist=false
 ro.bluetooth.library_name=libbluetooth_qti.so
+persist.vendor.btstack.enable.twsplus=true
+persist.vendor.btstack.enable.twsplussho=true
 vendor.qcom.bluetooth.soc=cherokee
 ro.bluetooth.a2dp_offload.supported=true
 # Blur
@@ -59,6 +61,15 @@ mmp.enable.3g2=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 persist.mm.enable.prefetch=true
 
+
+# Additional buffers shared between Camera and Video
+vidc.enc.dcvs.extra-buff-count=2
+vidc.enc.disable.pq=1
+
+# Mlipay
+ro.hardware.fp.fod=true
+persist.vendor.sys.pay.ifaa=1
+
 # Netflix custom property
 ro.netflix.bsp_rev=Q855-16947-1
 
@@ -93,6 +104,14 @@ wifi.interface=wlan0
 
 #audio
 qcom.hw.aac.encoder=true
+
+# RIL
+persist.data.iwlan=1
+persist.data.iwlan.ipsec.ap=1
+persist.sys.cust.lte_config=true
+persist.radio.VT_ENABLE=1
+persist.radio.volte.dan_support=true
+
 
 ro.rom.zone=2 
 ro.miui.has_gmscore=1
