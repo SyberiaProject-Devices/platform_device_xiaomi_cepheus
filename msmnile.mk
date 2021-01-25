@@ -249,6 +249,9 @@ PRODUCT_PACKAGES += \
 # Enable incremental FS feature
 PRODUCT_PROPERTY_OVERRIDES += ro.incremental.enable=1
 
+# Doze
+PRODUCT_PACKAGES += XiaomiCustomDoze
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus   
