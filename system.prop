@@ -24,7 +24,7 @@ ro.miui.notch=1
 
 # CNE and DPM
 persist.vendor.cne.feature=1
-persist.vendor.dpm.feature=1
+persist.vendor.dpm.feature=9
 persist.vendor.dpm.loglevel=0
 persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.vendor.dpmhalservice.enable=1
