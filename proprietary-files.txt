@@ -75,7 +75,16 @@ vendor/lib/libaudioroute_ext.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libtinycompress.so
 vendor/lib/libdrc.so
+<<<<<<< HEAD
 vendor/lib/libqtigef.so
+=======
+vendor/lib/libexthwplugin.so
+vendor/lib/libhdmiedid.so
+vendor/lib/libhdmipassthru.so
+vendor/lib/libhfp.so
+vendor/lib/libqtigef.so
+vendor/lib/libspkrprot.so
+>>>>>>> 4ba3a8f76... cepheus: Drop soundtrigger
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libmisoundfx.so
@@ -96,6 +105,13 @@ vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 # Audio-Hardware
 vendor/lib/hw/audio.primary.msmnile.so
 
+<<<<<<< HEAD
+=======
+# Audio Hardware
+vendor/lib/hw/vendor.qti.hardware.audiohalext@1.0-impl.so
+vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
+
+>>>>>>> 4ba3a8f76... cepheus: Drop soundtrigger
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
