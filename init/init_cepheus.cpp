@@ -127,10 +127,9 @@ static void workaround_snet_properties()
 void vendor_load_properties() {
     // fingerprint
     property_override("ro.build.description", "cepheus-user 10 QKQ1.190825.002 V12.0.3.0.QFAEUXM release-keys");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:11/RQ1A.210105.003/7005429:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:11/RQ1A.210205.004/7038034:user/release-keys");
     property_override("ro.apex.updatable", "true");
     load_dalvikvm_properties();
-
     // Workaround SafetyNet
     workaround_snet_properties();
 }
