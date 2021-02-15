@@ -102,9 +102,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     BluetoothQti \
     libbthost_if \
+    libldacBT_dec \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
+
+PRODUCT_COPY_FILES += \
+    hardware/qcom-caf/sm8150/audio/configs/common/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
@@ -116,6 +120,9 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Camera
 PRODUCT_PACKAGES += \
+    libxml2 \
+    libvraudio \
+    vendor.qti.hardware.camera.device@1.0.vendor \
     libdng_sdk.vendor
 
 PRODUCT_PACKAGES += \
@@ -140,6 +147,9 @@ PRODUCT_COPY_FILES += \
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiParts
+
+# Doze
+PRODUCT_PACKAGES += XiaomiCustomDoze
 
 # Display
 PRODUCT_PACKAGES += \
@@ -191,7 +201,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
-    vendor/revengeos/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+    $(LOCAL_PATH)/fod/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # Fstab
 PRODUCT_COPY_FILES += \
@@ -271,16 +281,25 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    liblasic \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
+    libOmxSwVdec \
+    libOmxSwVencMpeg4 \
     libOmxVdec \
+    libOmxVdecHevc \
+    libOmxVidEnc \
     libOmxVenc \
+    libgui_vendor \
     libstagefrighthw \
-    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
+    android.hardware.media.omx@1.0-impl
 
 # Media
 PRODUCT_PACKAGES += \
@@ -383,6 +402,23 @@ PRODUCT_PACKAGES += \
     libril \
     librilutils \
     librmnetctl
+
+#Radio
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.0 \
+    android.hardware.radio@1.1 \
+    android.hardware.radio@1.2 \
+    android.hardware.radio@1.3 \
+    android.hardware.radio@1.4 \
+    android.hardware.radio@1.5 \
+    android.hardware.radio.config@1.0 \
+    android.hardware.radio.deprecated@1.0 \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.2 \
+    libprotobuf-cpp-full
+
+PRODUCT_PACKAGES += \
+    libdepthphoto
 
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat \
@@ -504,10 +540,22 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libdisplayconfig.qti \
     libnl \
-    libqdMetaData
+    libqdMetaData.vendor \
+    libqdMetaData \
+    libqdMetaData.system \
+    libwfdaac \
+    libwfdaac_proprietary
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# NN
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full-rtti
+
+# OTA
+PRODUCT_PACKAGES += \
+    Updater
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
