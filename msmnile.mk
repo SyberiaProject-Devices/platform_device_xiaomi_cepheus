@@ -642,16 +642,7 @@ PRODUCT_PACKAGES += \
 
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat64.enabled=true \
-    ro.sys.fw.dex2oat_thread_count=8 \
-    dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.boot-dex2oat-threads=8 \
-    dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.dex2oat-threads=8 \
-    dalvik.vm.dex2oat-filter=quicken \
-    dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.image-dex2oat-filter=quicken \
-    dalvik.vm.image-dex2oat-threads=8
+    dalvik.vm.dex2oat64.enabled=true
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
