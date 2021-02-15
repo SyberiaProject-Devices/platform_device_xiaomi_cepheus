@@ -39,6 +39,7 @@ vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_karaoke_res.bin
 vendor/lib/rfsa/adsp/misound_res.bin
 
+<<<<<<< HEAD
 # Alarm
 -product/app/PowerOffAlarm/PowerOffAlarm.apk
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
@@ -47,6 +48,8 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
+=======
+>>>>>>> e2bdfffdf... raphael: Remove power off alarm blobs
 # Audio
 vendor/lib/liba2dpoffload.so
 vendor/lib/libacdb-fts.so

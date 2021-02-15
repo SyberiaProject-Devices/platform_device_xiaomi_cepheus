@@ -336,11 +336,6 @@ service vendor.power-hal /vendor/bin/hw/android.hardware.power-service-qti
     user system
     group system input
 
-service vendor.power_off_alarm /vendor/bin/power_off_alarm
-    class core
-    group system
-    oneshot
-
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
     class hal
@@ -356,3 +351,7 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
 on property:persist.sys.device_provisioned=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
     setprop dalvik.vm.dex2oat-threads 6
+
+on charger
+    setprop persist.sys.usb.config mass_storage
+    start qcom-post-boot
