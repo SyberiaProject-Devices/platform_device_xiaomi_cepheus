@@ -661,5 +661,9 @@ PRODUCT_PACKAGES += \
      vendor.lineage.livedisplay@2.0-service-sdm \
      vendor.lineage.livedisplay@2.0-service.cepheus
 
+#SystemUI plugins
+PRODUCT_PACKAGES += \
+    QuickAccessWallet
+
 # pixelstats
 include hardware/xiaomi/hidl/pixelstats/device.mk
