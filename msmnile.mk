@@ -293,7 +293,7 @@ PRODUCT_COPY_FILES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-cepheus \
+    android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
 # Storage health HAL
@@ -479,10 +479,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Updater
 
-# Tracing
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service.pixel
-
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
@@ -666,5 +662,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     QuickAccessWallet
 
-# pixelstats
-include hardware/xiaomi/hidl/pixelstats/device.mk
