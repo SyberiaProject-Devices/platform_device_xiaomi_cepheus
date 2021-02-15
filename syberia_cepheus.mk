@@ -22,7 +22,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/cepheus/msmnile.mk)
 
 # Inherit some common Revenge stuff.
-$(call inherit-product, vendor/revengeos/config/common.mk)
+$(call inherit-product, vendor/syberia/common.mk)
 
 # Inherit GApps if exsits
 $(call inherit-product-if-exists, vendor/gapps/gapps.mk)
@@ -31,11 +31,31 @@ $(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device identifier
-PRODUCT_NAME := revengeos_cepheus
+PRODUCT_NAME := syberia_cepheus
 PRODUCT_DEVICE := cepheus
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9
 PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME="cepheus" \
+    PRODUCT_DEVICE="cepheus"
+
+SYBERIA_BUILD_TYPE := OFFICIAL
+
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# FaceUnlock
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# gapps
+TARGET_GAPPS_ARCH := arm64
+IS_PHONE := true
+
+# FOD
+TARGET_HAS_FOD := true
+
+# FOD animations
+TARGET_WANTS_FOD_ANIMATIONS := true
 
 # Include firmware
 $(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)

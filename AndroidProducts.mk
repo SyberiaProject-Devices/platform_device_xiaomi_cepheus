@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/revengeos_cepheus.mk
+    $(LOCAL_DIR)/syberia_cepheus.mk
 
 COMMON_LUNCH_CHOICES := \
-    revengeos_cepheus-user \
-    revengeos_cepheus-userdebug \
-    revengeos_cepheus-eng
+    syberia_cepheus-user \
+    syberia_cepheus-userdebug \
+    syberia_cepheus-eng
