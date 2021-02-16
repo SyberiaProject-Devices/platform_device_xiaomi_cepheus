@@ -181,6 +181,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
+    libxlog \
     libvraudio \
     libdng_sdk.vendor \
     android.hardware.camera.provider@2.4-impl \
