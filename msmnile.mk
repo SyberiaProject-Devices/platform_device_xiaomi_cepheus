@@ -183,6 +183,8 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libvraudio \
     libdng_sdk.vendor \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 PRODUCT_COPY_FILES += \
