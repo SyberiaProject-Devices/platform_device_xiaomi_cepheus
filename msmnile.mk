@@ -293,7 +293,7 @@ PRODUCT_COPY_FILES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-cepheus \
+    android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
 # Storage health HAL
@@ -330,6 +330,7 @@ PRODUCT_PACKAGES += \
 
 # IFAA manager
 PRODUCT_PACKAGES += \
+    IFAAService \
     org.ifaa.android.manager
 
 PRODUCT_BOOT_JARS += \
@@ -477,10 +478,6 @@ PRODUCT_PACKAGES += \
 # OTA
 PRODUCT_PACKAGES += \
     Updater
-
-# Tracing
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service.pixel
 
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -645,21 +642,14 @@ PRODUCT_PACKAGES += \
 
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat64.enabled=true \
-    ro.sys.fw.dex2oat_thread_count=8 \
-    dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.boot-dex2oat-threads=8 \
-    dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.dex2oat-threads=8 \
-    dalvik.vm.dex2oat-filter=quicken \
-    dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
-    dalvik.vm.image-dex2oat-filter=quicken \
-    dalvik.vm.image-dex2oat-threads=8
+    dalvik.vm.dex2oat64.enabled=true
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
      vendor.lineage.livedisplay@2.0-service-sdm \
      vendor.lineage.livedisplay@2.0-service.cepheus
 
-# pixelstats
-include hardware/xiaomi/hidl/pixelstats/device.mk
+#SystemUI plugins
+PRODUCT_PACKAGES += \
+    QuickAccessWallet
+
