@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
+    android.hardware.bluetooth.audio@2.0 \
     android.hardware.bluetooth.audio@2.0-impl
 
 PRODUCT_PACKAGES += \
@@ -98,6 +99,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
+
+# NN
+PRODUCT_PACKAGES += android.hardware.neuralnetworks@1.2
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -198,7 +202,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus
+    vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus \
+    android.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
