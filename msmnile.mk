@@ -108,6 +108,7 @@ PRODUCT_PACKAGES += \
     BluetoothQti \
     libbthost_if \
     libldacBT_dec \
+    libldacBT_bco \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
@@ -238,6 +239,12 @@ PRODUCT_HOST_PACKAGES += \
     signapk
 
 # VNDK
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
+PRODUCT_PRODUCT_VNDK_VERSION := current
+PRODUCT_TARGET_VNDK_VERSION := 29
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
+
 PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vndk-sp \
