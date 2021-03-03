@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/syberia_cepheus.mk
+    $(LOCAL_DIR)/aosip_cepheus.mk
 
 COMMON_LUNCH_CHOICES := \
-    syberia_cepheus-user \
-    syberia_cepheus-userdebug \
-    syberia_cepheus-eng
+    aosip_cepheus-user \
+    aosip_cepheus-userdebug \
+    aosip_cepheus-eng

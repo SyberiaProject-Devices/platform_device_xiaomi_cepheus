@@ -306,9 +306,6 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.cepheus
 
 # LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm \
-    vendor.lineage.livedisplay@2.0-service.cepheus
 
 # Media
 PRODUCT_PACKAGES += \
@@ -594,3 +591,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
+
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.dexopt.ab-ota=speed-profile \
+    dalvik.vm.dex2oat-filter=everything \
+    dalvik.vm.image-dex2oat-filter=everything \
+    ro.vendor.qti.am.reschedule_service=true \
+    ro.sys.fw.dex2oat_thread_count=8 \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-threads=4 \
+    dalvik.vm.image-dex2oat-threads=4
