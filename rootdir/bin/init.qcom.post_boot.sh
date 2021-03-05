@@ -98,6 +98,8 @@ case "$target" in
     # Setting b.L scheduler parameters
     echo 95 95 > /proc/sys/kernel/sched_upmigrate
     echo 85 85 > /proc/sys/kernel/sched_downmigrate
+    echo 25 25 > /proc/sys/kernel/sched_upmigrate_boosted
+    echo 25 25 > /proc/sys/kernel/sched_downmigrate_boosted
 
     # cpuset parameters
     echo 0-7 /dev/cpuset/top-app/cpus
@@ -108,20 +110,20 @@ case "$target" in
 
     # Configure governor settings for silver cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-    echo 5000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 1000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+    echo 2500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+    echo 3000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
     echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/iowait_boost_enable
 
     # Configure governor settings for gold cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-    echo 5000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-    echo 1000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
+    echo 2500 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+    echo 3000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
     echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/iowait_boost_enable
 
     # Configure governor settings for gold+ cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-    echo 5000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
-    echo 1000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
+    echo 2500 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
+    echo 3000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
     echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/iowait_boost_enable
 
     # Disable wsf, beacause we are using efk.
