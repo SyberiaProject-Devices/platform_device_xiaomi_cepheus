@@ -31,6 +31,7 @@ target=`getprop ro.board.platform`
 
 function configure_zram_parameters() {
     # Set Zram disk size=1GB for >=2GB Non-Go targets.
+    echo "zstd" > /sys/block/zram0/comp_algorithm
     echo 2684350464 > /sys/block/zram0/disksize
     mkswap /dev/block/zram0
     swapon /dev/block/zram0 -p 32758
@@ -104,9 +105,15 @@ case "$target" in
     # cpuset parameters
     echo 0-7 /dev/cpuset/top-app/cpus
     echo 0-3,5-6 /dev/cpuset/foreground/cpus
-    echo 0-3 /dev/cpuset/background/cpus
-    echo 0-3,5-6 /dev/cpuset/system-background/cpus
+    echo 0-1 /dev/cpuset/background/cpus
+    echo 0-3 /dev/cpuset/system-background/cpus
     echo 0-3 /dev/cpuset/restricted/cpus
+
+    # Setup final blkio
+    echo 1000 > /dev/blkio/blkio.weight
+    echo 200 > /dev/blkio/background/blkio.weight
+    echo 2000 > /dev/blkio/blkio.group_idle
+    echo 0 > /dev/blkio/background/blkio.group_idle
 
     # Configure governor settings for silver cluster
     echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
