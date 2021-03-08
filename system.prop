@@ -13,8 +13,8 @@ persist.camera.sat.fallback.dist.d=10
 persist.camera.sat.fallback.dist=40
 persist.camera.sat.fallback.lux.d=50
 persist.camera.sat.fallback.luxindex=360
-persist.vendor.camera.enableNCSService=TRUE
-persist.vendor.camera.enableTOFInterface=TRUE
+vendor.camera.enableNCSService=TRUE
+vendor.camera.enableTOFInterface=TRUE
 persist.vendor.camera.mfnrframenum=8
 persist.vendor.camera.multicam=TRUE
 ro.miui.notch=1
@@ -105,6 +105,9 @@ ro.surface_flinger.protected_contents=true
 
 # WiFi
 wifi.interface=wlan0
+#GPS
+persist.vendor.overlay.izat.optin=rro
+
 
 ro.rom.zone=2
 ro.miui.has_gmscore=1

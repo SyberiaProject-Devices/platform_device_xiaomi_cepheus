@@ -364,10 +364,15 @@ PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8150/media/conf_files/msmnile/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     hardware/qcom-caf/sm8150/media/conf_files/msmnile/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml
 
-    PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml
+
 
 # Network
 PRODUCT_PACKAGES += \
@@ -612,6 +617,7 @@ PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
 
 PRODUCT_PROPERTY_OVERRIDES += \
     pm.dexopt.ab-ota=speed-profile \
+    dalvik.vm.dexopt.secondary=true \
     dalvik.vm.dex2oat-filter=everything \
     dalvik.vm.image-dex2oat-filter=everything \
     ro.vendor.qti.am.reschedule_service=true \
