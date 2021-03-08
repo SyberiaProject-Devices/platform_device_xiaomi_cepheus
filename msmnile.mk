@@ -605,6 +605,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Updater
 
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/hidl/vendor.qti.hardware.data.iwlan.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.qti.hardware.data.iwlan.xml
+
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapgrowthlimit=256m
