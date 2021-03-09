@@ -499,6 +499,7 @@ PRODUCT_PACKAGES += \
 
 # System Helper
 PRODUCT_PACKAGES += \
+    vendor.qti.hardware.systemhelper@1.0 \
     vendor.qti.hardware.systemhelper@1.0.vendor
 
 # Telephony
@@ -623,6 +624,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat-filter=everything \
     dalvik.vm.image-dex2oat-filter=everything \
     ro.vendor.qti.am.reschedule_service=true \
+    pm.dexopt.install=speed-profile \
     ro.sys.fw.dex2oat_thread_count=8 \
     dalvik.vm.boot-dex2oat-threads=8 \
     dalvik.vm.dex2oat-threads=4 \
