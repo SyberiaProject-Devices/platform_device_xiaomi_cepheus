@@ -598,6 +598,12 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_BOOT_JARS += tcmiface
 
+# Preloading QPerformance jar to ensure faster perflocks in Boost Framework
+PRODUCT_BOOT_JARS += QPerformance
+
+# Preloading UxPerformance jar to ensure faster UX invoke in Boost Framework
+PRODUCT_BOOT_JARS += UxPerformance
+
 # NN
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti

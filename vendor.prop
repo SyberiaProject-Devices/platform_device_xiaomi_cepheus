@@ -128,6 +128,11 @@ persist.vendor.cne.feature=1
 # Data modules
 persist.vendor.data.iwlan.enable=true
 persist.vendor.data.mode=concurrent
+#PERF
+ro.vendor.perf.scroll_opt=true
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
 
 # DPM
 persist.vendor.dpm.feature=1
