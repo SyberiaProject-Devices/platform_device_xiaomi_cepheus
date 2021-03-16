@@ -28,6 +28,7 @@
 #
 on early-init
     symlink /data/tombstones /tombstones
+    write /proc/sys/kernel/sched_boost 1
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -64,6 +65,9 @@ on early-fs
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
 
 on fs
     start hwservicemanager
@@ -71,6 +75,7 @@ on fs
 
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/audio 0755 system system
+    mkdir /mnt/vendor/persist/subsys 0770 root system
     mkdir /mnt/vendor/persist/camera 0777 root root
     restorecon_recursive /mnt/vendor/persist
 
@@ -102,10 +107,8 @@ on post-fs-data
     chmod 0644 /dev/elliptic1
 
 on boot
-    start vendor.rmt_storage
-    start vendor.rfs_access
-
     chown system system /sys/class/thermal/thermal_message/sconfig
+    write /sys/class/thermal/thermal_message/sconfig 10
 
     # Allow system to modify dc dimming state
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
@@ -120,21 +123,30 @@ on property:sys.boot_completed=1
     write /sys/block/sde/queue/nr_requests 128
     write /sys/block/sde/queue/iostats 1
 
-    # First setup runtime cpusets only for silver cpus
+    
+    # First initialize silver only cpus
+    write /dev/cpuset/audio-app/cpus 1-2
+    write /dev/cpuset/background/cpus 0-2
+    write /dev/cpuset/system-background/cpus 0-3
+
+    # And then initialize silver + gold
     write /dev/cpuset/top-app/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
 
-    # Setup runtime cpusets
     write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/foreground/cpus 0-3,5-6
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
-    write /dev/cpuset/restricted/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-2,4-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
 
-    # Configure dynamic stune boost
-    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 15
-    write /sys/module/cpu_boost/parameters/dynamic_stune_boost_ms 1500
-    write /dev/stune/top-app/schedtune.sched_boost 15
+
+
+on property:vendor.post_boot.parsed=1
+    # Enable idle state listener
+    write /sys/class/drm/card0/device/idle_encoder_mask 1
+    write /sys/class/drm/card0/device/idle_timeout_ms 100
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
 
 service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
@@ -194,3 +206,13 @@ service remosaic_daemon /vendor/bin/remosaic_daemon
    class late_start
    user camera
    group camera
+
+service dcvs-sh /vendor/bin/init.qti.dcvs.sh
+    class late_start
+    user root
+    group root system
+    disabled
+    oneshot
+
+on property:vendor.dcvs.prop=1
+   start dcvs-sh
