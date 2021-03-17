@@ -1,0 +1,62 @@
+diff --git a/buildkernel.sh b/buildkernel.sh
+index d40ce81..c125c77 100755
+--- a/buildkernel.sh
++++ b/buildkernel.sh
+@@ -76,7 +76,7 @@ make_defconfig()
+ 		echo "Building defconfig"
+ 		set -x
+ 		(cd ${KERNEL_DIR} && \
+-		${MAKE_PATH}make O=${OUT_DIR} ${MAKE_ARGS} HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} ${DEFCONFIG})
++		PATH=/root/syb/vendor/qcom/sdclang/bin:$PATH ${MAKE_PATH}make O=${OUT_DIR} ${MAKE_ARGS} HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} ${DEFCONFIG})
+ 		set +x
+ 	fi
+ }
+@@ -88,7 +88,7 @@ headers_install()
+ 	echo "Installing kernel headers"
+ 	set -x
+ 	(cd ${OUT_DIR} && \
+-	${MAKE_PATH}make HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} O=${OUT_DIR} ${CC_ARG} ${MAKE_ARGS} headers_install)
++	PATH=/root/syb/vendor/qcom/sdclang/bin:$PATH ${MAKE_PATH}make HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} O=${OUT_DIR} ${CC_ARG} ${MAKE_ARGS} headers_install)
+ 	set +x
+ }
+ 
+@@ -99,7 +99,7 @@ build_kernel()
+ 	echo "Building kernel"
+ 	set -x
+ 	(cd ${OUT_DIR} && \
+-	${MAKE_PATH}make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" O=${OUT_DIR} ${CC_ARG} ${MAKE_ARGS} -j$(nproc))
++		PATH=/root/syb/vendor/qcom/sdclang/bin:$PATH ${MAKE_PATH}make ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} HOSTCFLAGS="${TARGET_INCLUDES}" HOSTLDFLAGS="${TARGET_LINCLUDES}" O=${OUT_DIR} ${CC_ARG} ${MAKE_ARGS} -j$(nproc))
+ 	set +x
+ }
+ 
+diff --git a/kernel_definitions.mk b/kernel_definitions.mk
+index 96707c4..c2ccca4 100755
+--- a/kernel_definitions.mk
++++ b/kernel_definitions.mk
+@@ -34,8 +34,8 @@ TARGET_KERNEL_MAKE_ENV += DEPMOD=$(SOURCE_ROOT)/$(HOST_OUT_EXECUTABLES)/depmod
+ TARGET_KERNEL_MAKE_ENV += YACC=$(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/bison
+ TARGET_KERNEL_MAKE_ENV += LEX=$(SOURCE_ROOT)/prebuilts/build-tools/linux-x86/bin/flex
+ TARGET_KERNEL_MAKE_ENV += M4=$(SOURCE_ROOT)/prebuilts/build-tools/$(HOST_OS)-x86/bin/m4
+-TARGET_KERNEL_MAKE_CFLAGS = "-I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu -fuse-ld=lld"
+-TARGET_KERNEL_MAKE_LDFLAGS = "-L/usr/lib -L/usr/lib/x86_64-linux-gnu -fuse-ld=lld"
++TARGET_KERNEL_MAKE_CFLAGS = "-I/usr/include -I/usr/include/x86_64-linux-gnu -L/usr/lib -L/usr/lib/x86_64-linux-gnu"
++TARGET_KERNEL_MAKE_LDFLAGS = "-L/usr/lib -L/usr/lib/x86_64-linux-gnu"
+ 
+ KERNEL_LLVM_BIN := $(lastword $(sort $(wildcard $(SOURCE_ROOT)/$(LLVM_PREBUILTS_BASE)/$(BUILD_OS)-x86/clang-4*)))/bin/clang
+ 
+@@ -95,11 +95,11 @@ ifeq ($(KERNEL_LLVM_SUPPORT),true)
+     $(info "Using aosp-llvm" $(KERNEL_LLVM_BIN))
+   endif
+   ifeq ($(KERNEL_ARCH), arm64)
+-      real_cc := REAL_CC=$(KERNEL_LLVM_BIN) CLANG_TRIPLE=aarch64-linux-gnu-
+-      cc := CC=$(KERNEL_LLVM_BIN) CLANG_TRIPLE=aarch64-linux-gnu-
++      real_cc := REAL_CC=$(KERNEL_LLVM_BIN) LD=$(shell pwd)/$(SDCLANG_PATH)/ld.lld AS=$(shell pwd)/$(SDCLANG_PATH)/llvm-as AR=$(shell pwd)/$(SDCLANG_PATH)/llvm-ar NM=$(shell pwd)/$(SDCLANG_PATH)/llvm-nm OBJCOPY=$(shell pwd)/$(SDCLANG_PATH)/llvm-objcopy OBJDUMP=$(shell pwd)/$(SDCLANG_PATH)/llvm-objdump STRIP=$(shell pwd)/$(SDCLANG_PATH)/llvm-strip CLANG_TRIPLE=aarch64-linux-gnu-
++      cc := CC=$(KERNEL_LLVM_BIN) LD=$(shell pwd)/$(SDCLANG_PATH)/ld.lld AS=$(shell pwd)/$(SDCLANG_PATH)/llvm-as AR=$(shell pwd)/$(SDCLANG_PATH)/llvm-ar NM=$(shell pwd)/$(SDCLANG_PATH)/llvm-nm OBJCOPY=$(shell pwd)/$(SDCLANG_PATH)/llvm-objcopy OBJDUMP=$(shell pwd)/$(SDCLANG_PATH)/llvm-objdump STRIP=$(shell pwd)/$(SDCLANG_PATH)/llvm-strip CLANG_TRIPLE=aarch64-linux-gnu-
+   else
+-      real_cc := REAL_CC=$(KERNEL_LLVM_BIN) CLANG_TRIPLE=arm-linux-gnueabihf
+-      cc := CC=$(KERNEL_LLVM_BIN) CLANG_TRIPLE=arm-linux-gnueabihf
++      real_cc := REAL_CC=$(KERNEL_LLVM_BIN) LD=$(shell pwd)/$(SDCLANG_PATH)/ld.lld AS=$(shell pwd)/$(SDCLANG_PATH)/llvm-as AR=$(shell pwd)/$(SDCLANG_PATH)/llvm-ar NM=$(shell pwd)/$(SDCLANG_PATH)/llvm-nm OBJCOPY=$(shell pwd)/$(SDCLANG_PATH)/llvm-objcopy OBJDUMP=$(shell pwd)/$(SDCLANG_PATH)/llvm-objdump STRIP=$(shell pwd)/$(SDCLANG_PATH)/llvm-strip CLANG_TRIPLE=arm-linux-gnueabihf
++      cc := CC=$(KERNEL_LLVM_BIN)  LD=$(shell pwd)/$(SDCLANG_PATH)/ld.lld AS=$(shell pwd)/$(SDCLANG_PATH)/llvm-as AR=$(shell pwd)/$(SDCLANG_PATH)/llvm-ar NM=$(shell pwd)/$(SDCLANG_PATH)/llvm-nm OBJCOPY=$(shell pwd)/$(SDCLANG_PATH)/llvm-objcopy OBJDUMP=$(shell pwd)/$(SDCLANG_PATH)/llvm-objdump STRIP=$(shell pwd)/$(SDCLANG_PATH)/llvm-strip  CLANG_TRIPLE=arm-linux-gnueabihf 
+   endif
+ else
+ ifeq ($(strip $(KERNEL_GCC_NOANDROID_CHK)),0)
