@@ -23,6 +23,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
+$(call inherit-product, vendor/xiaomi/cepheus/perf/perf-vendor.mk)
+
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
@@ -259,8 +261,7 @@ PRODUCT_COPY_FILES += \
 
 # IWLAN
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/vintf/manifest/vendor.qti.hardware.data.iwlan.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.qti.hardware.data.iwlan.xml
-
+    $(LOCAL_PATH)/configs/hidl/vendor.qti.hardware.data.iwlan.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.qti.hardware.data.iwlan.xml
 
 # Hotword Enrollment
 PRODUCT_COPY_FILES += \
@@ -509,11 +510,7 @@ PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
-    qti_telephony_utils.xml \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
+    qti_telephony_utils.xml 
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
@@ -595,8 +592,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
 
 # Preloading QPerformance jar to ensure faster perflocks in Boost Framework
 PRODUCT_BOOT_JARS += QPerformance
@@ -611,8 +606,6 @@ PRODUCT_PACKAGES += \
 # OTA
 PRODUCT_PACKAGES += \
     Updater
-
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/hidl/vendor.qti.hardware.data.iwlan.xml:$(TARGET_COPY_OUT_VENDOR)/etc/vintf/manifest/vendor.qti.hardware.data.iwlan.xml
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
