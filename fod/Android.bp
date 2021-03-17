@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus",
-    vintf_fragments: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus.xml"],
-    init_rc: ["vendor.lineage.biometrics.fingerprint.inscreen@1.0-service.cepheus.rc"],
+    name: "vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus",
+    vintf_fragments: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus.xml"],
+    init_rc: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
@@ -31,7 +31,7 @@ cc_binary {
         "liblog",
         "libutils",
         "vendor.goodix.hardware.biometrics.fingerprint@2.1",
-        "vendor.lineage.biometrics.fingerprint.inscreen@1.0",
+        "vendor.aospa.biometrics.fingerprint.inscreen@1.0",
         "vendor.xiaomi.hardware.fingerprintextension@1.0",
     ],
 }
@@ -41,8 +41,5 @@ cc_library_static {
     srcs: ["FodExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"
-    ],
-    header_libs: [
-        "generated_kernel_headers",
     ],
 }

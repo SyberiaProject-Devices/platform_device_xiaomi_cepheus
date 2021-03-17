@@ -22,14 +22,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/cepheus/msmnile.mk)
 
 # Inherit some common Revenge stuff.
-$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
-$(call inherit-product-if-exists, vendor/google/psu/google-psu.mk)
+$(call inherit-product, vendor/pa/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
 
 # Device identifier
-PRODUCT_NAME := aosip_cepheus
+PRODUCT_NAME := pa_cepheus
 PRODUCT_DEVICE := cepheus
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9
@@ -41,7 +40,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 SYBERIA_BUILD_TYPE := OFFICIAL
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
+TARGET_VENDOR_PRODUCT_NAME := cepheus
 # FaceUnlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
 

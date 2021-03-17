@@ -57,7 +57,8 @@ BOARD_RAMDISK_OFFSET := 0x01000000
 
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_PATH := /root/syb/prebuilts/clang/host/linux-x86/clang-11
+#TARGET_KERNEL_CLANG_PATH := /root/syb/prebuilts/clang/host/linux-x86/clang-11
+TARGET_KERNEL_CLANG_PATH := /root/syb/vendor/qcom/sdclang/bin
 KERNEL_CC = CC=clang
 KERNEL_CC += LD=$(TARGET_KERNEL_CLANG_PATH)/bin/ld.lld
 KERNEL_CC += AS=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-as
@@ -66,9 +67,11 @@ KERNEL_CC += NM=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-nm
 KERNEL_CC += OBJCOPY=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-objcopy
 KERNEL_CC += OBJDUMP=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-objdump
 KERNEL_CC += STRIP=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-strip
+TARGET_KERNEL_VERSION := 4.14
 TARGET_KERNEL_CONFIG := cepheus_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/cepheus
-
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
