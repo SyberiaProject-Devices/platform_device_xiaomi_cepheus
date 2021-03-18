@@ -109,6 +109,10 @@ wifi.interface=wlan0
 persist.vendor.overlay.izat.optin=rro
 
 
+# ParanoidDoze
+ro.sensor.pickup=xiaomi.sensor.pickup
+ro.sensor.proximity=true
+
 ro.rom.zone=2
 ro.miui.has_gmscore=1
 ro.miui.build.region=eea

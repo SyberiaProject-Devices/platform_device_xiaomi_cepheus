@@ -24,6 +24,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 $(call inherit-product, vendor/xiaomi/cepheus/perf/perf-vendor.mk)
+$(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
+
 
 
 # Additional native libraries
@@ -152,12 +154,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.context_hub.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.context_hub.xml
 
-# Device-specific settings
+# ParanoidDoze
 PRODUCT_PACKAGES += \
-    XiaomiParts
-
-# Doze
-PRODUCT_PACKAGES += XiaomiCustomDoze
+    ParanoidDoze
 
 # Display
 PRODUCT_PACKAGES += \
@@ -242,11 +241,14 @@ PRODUCT_HOST_PACKAGES += \
     signapk
 
 # VNDK
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
-PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
-PRODUCT_PRODUCT_VNDK_VERSION := current
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+#PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+#PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
+#PRODUCT_PRODUCT_VNDK_VERSION := current
+#PRODUCT_TARGET_VNDK_VERSION := 29
+#PRODUCT_EXTRA_VNDK_VERSIONS := 29
+
+PRODUCT_PACKAGES += \
+    disable_configstore
 
 # VNDK
 PRODUCT_PACKAGES += \
@@ -618,13 +620,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
 
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
 
 PRODUCT_PROPERTY_OVERRIDES += \
     pm.dexopt.ab-ota=speed-profile \
     dalvik.vm.dexopt.secondary=true \
-    dalvik.vm.dex2oat-filter=everything \
-    dalvik.vm.image-dex2oat-filter=everything \
     ro.vendor.qti.am.reschedule_service=true \
     pm.dexopt.install=speed-profile \
     ro.sys.fw.dex2oat_thread_count=8 \
