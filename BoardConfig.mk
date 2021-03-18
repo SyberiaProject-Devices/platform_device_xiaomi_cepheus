@@ -67,6 +67,9 @@ KERNEL_CC += NM=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-nm
 KERNEL_CC += OBJCOPY=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-objcopy
 KERNEL_CC += OBJDUMP=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-objdump
 KERNEL_CC += STRIP=$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-strip
+BOARD_MKBOOTIMG_ARGS := --header_version 1
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_USES_UNCOMPRESSED_KERNEL := false
 TARGET_KERNEL_VERSION := 4.14
 TARGET_KERNEL_CONFIG := cepheus_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/cepheus
@@ -210,7 +213,7 @@ VENDOR_SECURITY_PATCH := 2021-02-01
 
 # Sepolicy
 TARGET_SEPOLICY_DIR := msmnile
-include device/qcom/sepolicy_vndr/SEPolicy.mk
+#include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public

@@ -6,7 +6,7 @@ vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon     u:ob
 vendor.xiaomi.hardware.fingerprintextension::IXiaomiFingerprint             u:object_r:hal_xiaomi_fingerprint_hwservice:s0
 
 # FOD
-vendor.hentai.biometrics.fingerprint.inscreen::IFingerprintInscreen         u:object_r:hal_hentai_fod_hwservice:s0
+vendor.aospa.biometrics.fingerprint.inscreen::IFingerprintInscreen         u:object_r:vendor_fod_hwservice:s0
 
 # Mlipay
 vendor.xiaomi.hardware.mlipay::IMlipayService                               u:object_r:hal_mlipay_hwservice:s0
