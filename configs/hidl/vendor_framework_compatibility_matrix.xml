@@ -1006,7 +1006,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <version>1.1</version>
         <interface>
             <name>IMlipayService</name>
-            <instance>defaultx0</instance>
+            <instance>default</instance>
         </interface>
 </hal>
 </compatibility-matrix>
