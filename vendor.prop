@@ -240,7 +240,7 @@ persist.radio.sar_sar_sensor=true
 persist.radio.VT_HYBRID_ENABLE=1
 persist.sys.fflag.override.settings_network_and_internet_v2=true
 persist.vendor.radio.mt_sms_ack=30
-
+persist.vendor.radio.aosp_usr_pref_sel=true
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 persist.vendor.uspsensor=default
