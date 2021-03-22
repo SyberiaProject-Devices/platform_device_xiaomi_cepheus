@@ -26,6 +26,8 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
+import /vendor/etc/init/init.mi_thermald.rc
+
 on early-init
     symlink /data/tombstones /tombstones
     write /proc/sys/kernel/sched_boost 1
@@ -198,7 +200,7 @@ on charger
     wait /dev/block/platform/soc/1d84000.ufshc/by-name/persist
     mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid nodev barrier=1
 
-    start qcom-post-boot
+    start vendor.qcom-post-boot
     start vendor.hvdcp_opti
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
@@ -215,7 +217,13 @@ service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     user root
     group system wakelock
 
-service nv_mac /vendor/bin/nv_mac
+service vendor.remosaic_daemon /vendor/bin/remosaic_daemon
+    class late_start
+    user camera
+    group camera
+    writepid /dev/cpuset/system-background/tasks
+
+service vendor.nv_mac /vendor/bin/nv_mac
     class main
     user system
     group system inet net_admin wifi net_raw

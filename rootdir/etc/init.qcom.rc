@@ -299,9 +299,7 @@ on property:sys.boot_completed=1
 
     chown media audio /sys/kernel/wdsp0/boot
 
-    start qcom-post-boot
-
-    start affinity
+    start vendor.qcom-post-boot
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
@@ -336,13 +334,6 @@ service ssgqmigd /vendor/bin/ssgqmigd
     group radio gps system
     socket ssgqmig seqpacket 0660 radio inet
 
-service affinity /vendor/etc/init.affinity.sh
-    class late_start
-    user root
-    group root system wakelock graphics
-    disabled
-    oneshot
-
 on property:sys.shutdown.requested=*
     write /sys/kernel/shutdown_wlan/shutdown 1
     stop cnss-daemon
@@ -352,13 +343,13 @@ service loc_launcher /vendor/bin/loc_launcher
     user gps
     group gps
 
-service qcom-sh /vendor/bin/init.qcom.sh
+service vendor.qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     group root system radio
     oneshot
 
-service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
+service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
     group root system wakelock graphics
@@ -399,6 +390,7 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqb
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
@@ -418,4 +410,4 @@ on property:persist.sys.device_provisioned=1
 
 on charger
     setprop persist.sys.usb.config mass_storage
-    start qcom-post-boot
+    start vendor.qcom-post-boot
