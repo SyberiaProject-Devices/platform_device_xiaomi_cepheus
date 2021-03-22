@@ -23,7 +23,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
-$(call inherit-product, vendor/xiaomi/cepheus/perf/perf-vendor.mk)
 $(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
 
 MSMNILE := msmnile
@@ -421,7 +420,17 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service
 
 RODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(LOCAL_PATH)/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
+    $(LOCAL_PATH)/configs/perf/lm/AdaptLaunchFeature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/lm/AdaptLaunchFeature.xml \
+    $(LOCAL_PATH)/configs/perf/lm/AppClassifierFeature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/lm/AppClassifierFeature.xml \
+    $(LOCAL_PATH)/configs/perf/lm/GameOptimizationFeature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/lm/GameOptimizationFeature.xml \
+    $(LOCAL_PATH)/configs/perf/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
+    $(LOCAL_PATH)/configs/perf/perfboostconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfboostconfig.xml \
+    $(LOCAL_PATH)/configs/perf/perfconfigstore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/perfconfigstore.xml \
+    $(LOCAL_PATH)/configs/perf/targetresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetresourceconfigs.xml \
+    $(LOCAL_PATH)/configs/perf/targetconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/targetconfig.xml \
+    $(LOCAL_PATH)/configs/perf/commonresourceconfigs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/perf/commonresourceconfigs.xml \
+
 
 
 # Product characteristics
@@ -603,7 +612,8 @@ PRODUCT_PACKAGES += \
 
 
 TARGET_COMMON_QTI_COMPONENTS := \
-    telephony
+    telephony \
+    perf
 
 # OTA
 PRODUCT_PACKAGES += \
