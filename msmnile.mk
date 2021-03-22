@@ -305,8 +305,6 @@ PRODUCT_PACKAGES += \
 
 # IPACM
 PRODUCT_PACKAGES += \
-    ipacm \
-    IPACM_cfg.xml \
     libipanat \
     liboffloadhal
 
@@ -435,19 +433,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
-    $(LOCAL_PATH)/configs/permissions/system_ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-qti.xml \
     $(LOCAL_PATH)/configs/permissions/system_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/system_privapp-permissions-qti.xml
 
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-# RIL
-PRODUCT_PACKAGES += \
-    libjson \
-    libril \
-    librilutils \
-    librmnetctl
 
 #Radio
 PRODUCT_PACKAGES += \
@@ -600,7 +591,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-
 # Preloading QPerformance jar to ensure faster perflocks in Boost Framework
 PRODUCT_BOOT_JARS += QPerformance
 
@@ -610,6 +600,10 @@ PRODUCT_BOOT_JARS += UxPerformance
 # NN
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
+
+
+TARGET_COMMON_QTI_COMPONENTS := \
+    telephony
 
 # OTA
 PRODUCT_PACKAGES += \
@@ -622,7 +616,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use 64-bit dex2oat for better dexopt time.
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
-
 
 PRODUCT_PROPERTY_OVERRIDES += \
     pm.dexopt.ab-ota=speed-profile \
