@@ -182,6 +182,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 #TARGET_BOARD_PLATFORM := msmnile
 
 # Power
+TARGET_USES_NON_LEGACY_POWERHAL := true
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
 # Properties
