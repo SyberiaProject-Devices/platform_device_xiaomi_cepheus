@@ -23,7 +23,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
-$(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
 
 MSMNILE := msmnile
 TARGET_BOARD_PLATFORM := $(MSMNILE)
@@ -46,8 +45,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio@2.0 \
-    android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.bluetooth.audio@2.0-impl 
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -172,6 +170,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vendor.display.config@2.0 \
+    vendor.display.config@1.0 \
+    vendor.display.config@1.0.vendor \
     vendor.display.config@2.0.vendor
 
 PRODUCT_PACKAGES += \
@@ -249,7 +249,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vndk-sp \
-    com.android.vndk.current \
     com.android.vndk.current.on_vendor
 
 # Insmod files
@@ -581,9 +580,6 @@ PRODUCT_PACKAGES += \
     libwfdaac \
     libwfdaac_proprietary
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
 # NN
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
@@ -591,11 +587,14 @@ PRODUCT_PACKAGES += \
 
 TARGET_COMMON_QTI_COMPONENTS := \
     telephony \
-    perf
+    perf 
+
+#PRODUCT_BOOT_JARS += WfdCommon
 
 # OTA
 PRODUCT_PACKAGES += \
     Updater
+
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
