@@ -53,5 +53,6 @@ TARGET_HAS_FOD := true
 # FOD animations
 TARGET_WANTS_FOD_ANIMATIONS := true
 
-# Include firmware
-$(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)
+# Dev certificate
+#PRODUCT_DEFAULT_DEV_CERTIFICATE:= build/target/product/security/devkey
+

@@ -23,14 +23,14 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
-$(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
 
 MSMNILE := msmnile
 TARGET_BOARD_PLATFORM := $(MSMNILE)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
+    $(LOCAL_PATH)/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # AID/fs configs
 PRODUCT_PACKAGES += \
@@ -46,8 +46,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio@2.0 \
-    android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.bluetooth.audio@2.0-impl 
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -73,6 +72,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
     $(LOCAL_PATH)/configs/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_overlay_dynamic.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_overlay_dynamic.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_overlay_static.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_overlay_static.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths_pahu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_pahu.xml \
@@ -172,6 +172,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vendor.display.config@2.0 \
+    vendor.display.config@1.0 \
+    vendor.display.config@1.0.vendor \
     vendor.display.config@2.0.vendor
 
 PRODUCT_PACKAGES += \
@@ -199,7 +201,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus \
+    vendor.aospa.biometrics.fingerprint.inscreen@1.0-service \
     android.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_COPY_FILES += \
@@ -249,7 +251,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vndk-sp \
-    com.android.vndk.current \
     com.android.vndk.current.on_vendor
 
 # Insmod files
@@ -412,7 +413,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service
+    android.hardware.power-service \
+    android.hardware.power-impl
 
 RODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
@@ -432,6 +434,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
     $(LOCAL_PATH)/configs/permissions/system_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/system_privapp-permissions-qti.xml
+
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_xiaomi
 
 # RenderScript
 PRODUCT_PACKAGES += \
@@ -510,8 +516,8 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0-service.qti
+#PRODUCT_PACKAGES += \
+#    android.hardware.thermal@2.0-service.qti
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
@@ -576,27 +582,25 @@ PRODUCT_PACKAGES += \
     libwfdaac \
     libwfdaac_proprietary
 
-PRODUCT_BOOT_JARS += \
-    WfdCommon
-
-# Preloading QPerformance jar to ensure faster perflocks in Boost Framework
-PRODUCT_BOOT_JARS += QPerformance
-
-# Preloading UxPerformance jar to ensure faster UX invoke in Boost Framework
-PRODUCT_BOOT_JARS += UxPerformance
-
 # NN
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
 
 
 TARGET_COMMON_QTI_COMPONENTS := \
+    bt \
     telephony \
-    perf
+    perf \
+    wfd
+
+include vendor/qcom/opensource/commonsys-intf/display/config/display-interfaces-product.mk
+include vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk
+#PRODUCT_BOOT_JARS += WfdCommon
 
 # OTA
 PRODUCT_PACKAGES += \
     Updater
+
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \

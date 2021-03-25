@@ -76,11 +76,11 @@ TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+#BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += loop.max_part=16
 BOARD_KERNEL_CMDLINE += kpti=off
-SELINUX_IGNORE_NEVERALLOWS := true
+#SELINUX_IGNORE_NEVERALLOWS := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := cepheus
@@ -97,11 +97,12 @@ AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 
 USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
-BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # Bluetooth
-TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
 TARGET_USE_QTI_BT_STACK := true
+TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := cepheus
@@ -182,6 +183,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 #TARGET_BOARD_PLATFORM := msmnile
 
 # Power
+TARGET_USES_NON_LEGACY_POWERHAL := true
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
 
 # Properties
@@ -198,6 +200,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
 # Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_xiaomi
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RIL

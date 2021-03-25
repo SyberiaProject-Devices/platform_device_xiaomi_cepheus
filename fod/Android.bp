@@ -14,16 +14,16 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus",
-    vintf_fragments: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus.xml"],
-    init_rc: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus.rc"],
+    name: "vendor.aospa.biometrics.fingerprint.inscreen@1.0-service",
+    vintf_fragments: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.xml"],
+    init_rc: ["vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [
         "service.cpp",
         "FingerprintInscreen.cpp",
     ],
-    vendor: true,
+    system_ext_specific: true,
     shared_libs: [
         "libbase",
         "libhardware",

@@ -184,16 +184,6 @@
         <fqname>@1.0::ISensors/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.soundtrigger</name>
-        <transport>hwbinder</transport>
-        <version>2.3</version>
-        <interface>
-            <name>ISoundTriggerHw</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@2.3::ISoundTriggerHw/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.tetheroffload.config</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -472,6 +462,16 @@
         <fqname>@1.0::IUimRemoteServiceServer/uimRemoteServer1</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.sensorscalibrate</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ISensorsCalibrate</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ISensorsCalibrate/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.soter</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -531,22 +531,7 @@
         </interface>
         <fqname>@1.0::IPasrManager/default</fqname>
     </hal>
-  <!-- Trusted UI HAL Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.trustedui</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ITrustedInput</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>ITrustedUI</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::ITrustedInput/default</fqname>
-        <fqname>@1.0::ITrustedUI/default</fqname>
-    </hal>
+       <!-- TUI Communicator service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.tui_comm</name>
         <transport>hwbinder</transport>
@@ -555,13 +540,52 @@
             <name>ITuiComm</name>
             <instance>default</instance>
         </interface>
-        <fqname>@1.0::ITuiComm/default</fqname>
     </hal>
-  <!-- eMBMS HAL Service -->
+  <!-- QSEECom HAL service -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qseecom</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQSEECom</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- QTEEConnector HAL service -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.qteeconnector</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAppConnector</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IGPAppConnector</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+   <!-- Trusted UI HAL Service -->
+    <hal format="hidl">
+        <name>vendor.qti.hardware.trustedui</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ITrustedUI</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>ITrustedInput</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ITrustedInput/default</fqname>
+        <fqname>@1.1::ITrustedUI/default</fqname>
+    </hal> 
+    <!-- eMBMS HAL Service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.embmssl</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>IEmbms</name>
             <instance>embmsslServer0</instance>
@@ -588,18 +612,13 @@
         </interface>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.qteeconnector</name>
+        <name>vendor.qti.hardware.qccvndhal</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>IAppConnector</name>
-            <instance>default</instance>
+            <name>IQccvndhal</name>
+            <instance>qccvndhal</instance>
         </interface>
-        <interface>
-            <name>IGPAppConnector</name>
-            <instance>default</instance>
-        </interface>
-        <fqname>@1.0::IAppConnector/default</fqname>
-        <fqname>@1.0::IGPAppConnector/default</fqname>
+        <fqname>@1.0::IQccvndhal/qccvndhal</fqname>
     </hal>
 </manifest>
