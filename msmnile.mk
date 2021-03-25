@@ -201,7 +201,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus \
+    vendor.aospa.biometrics.fingerprint.inscreen@1.0-service \
     android.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_COPY_FILES += \

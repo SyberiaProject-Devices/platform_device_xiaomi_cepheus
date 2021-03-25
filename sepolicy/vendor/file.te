@@ -1,5 +1,6 @@
 # Adsp
 type public_adsprpcd_file, file_type;
+type vendor_sysfs_fod, sysfs_type, fs_type;
 
 # Audio
 type audio_socket, file_type;

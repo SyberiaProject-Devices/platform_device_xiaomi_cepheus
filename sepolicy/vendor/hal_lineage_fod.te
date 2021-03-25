@@ -1,8 +1,0 @@
-# HwBinder IPC from client to server
-binder_call(vendor_fod_client, vendor_fod_server)
-
-add_hwservice(vendor_fod_server, vendor_fod_hwservice)
-allow vendor_fod_client vendor_fod_hwservice:hwservice_manager find;
-
-# Allow binder communication with platform_app
-binder_call(vendor_fod, platform_app)
