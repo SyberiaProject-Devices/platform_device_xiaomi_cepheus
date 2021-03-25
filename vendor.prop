@@ -19,6 +19,11 @@ ro.config.media_vol_steps=25
 ro.vendor.audio.sdk.fluencetype=fluence
 ro.vendor.audio.sdk.ssr=false
 ro.vendor.audio.sfx.earadj=true
+ro.vendor.audio.sos=true
+ro.vendor.audio.game.effect=true
+ro.vendor.audio.hifi=true
+ro.vendor.audio.ring.filter=true
+persist.vendor.audio.ring.filter.mask=0
 ro.vendor.audio.soundfx.type=mi
 ro.vendor.audio.soundfx.usb=true
 ro.vendor.audio.soundtrigger.cnn.adsp.level=27
@@ -31,6 +36,22 @@ ro.vendor.audio.soundtrigger.lowpower=true
 ro.vendor.audio.soundtrigger.training.level=50
 ro.vendor.audio.soundtrigger.vop.adsp.level=10
 ro.vendor.audio.soundtrigger.vop.level=10
+ro.vendor.audio.soundtrigger.xanzn.cnn.level=25
+ro.vendor.audio.soundtrigger.xanzn.gmm.level=45
+ro.vendor.audio.soundtrigger.xanzn.gmm.user.level=50
+ro.vendor.audio.soundtrigger.xanzn.vop.level=20
+ro.vendor.audio.soundtrigger.xatx.cnn.level.high=27
+ro.vendor.audio.soundtrigger.xatx.cnn.level.low=27
+ro.vendor.audio.soundtrigger.xatx.cnn.level.medium=27
+ro.vendor.audio.soundtrigger.xatx.gmm.level.high=50
+ro.vendor.audio.soundtrigger.xatx.gmm.level.low=50
+ro.vendor.audio.soundtrigger.xatx.gmm.level.medium=50
+ro.vendor.audio.soundtrigger.xatx.gmm.user.level.high=10
+ro.vendor.audio.soundtrigger.xatx.gmm.user.level.low=10
+ro.vendor.audio.soundtrigger.xatx.gmm.user.level.medium=10
+ro.vendor.audio.soundtrigger.xatx.vop.level.high=10
+ro.vendor.audio.soundtrigger.xatx.vop.level.low=10
+ro.vendor.audio.soundtrigger.xatx.vop.level.medium=10
 ro.vendor.audio.soundtrigger=sva
 vendor.audio.adm.buffering.ms=16
 vendor.audio.feature.a2dp_offload.enable=true
@@ -194,12 +215,15 @@ debug.stagefright.omx_default_rank=0
 # Property to enable/disable PASR
 vendor.power.pasr.enabled=true
 
+persist.vendor.qcomsysd.enabled=1
 # QC framework value-adds
 ro.vendor.qti.va_aosp.support=1
 
 # Radio
 persist.vendor.radio.apm_sim_not_pwdn=1
+persist.vendor.radio.atfwd.start=true
 persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.data_con_rprt=1
 persist.vendor.radio.data_ltd_sys_ind=1
 persist.vendor.radio.dynamic_sar=false
 persist.vendor.radio.enableadvancedscan=true
@@ -209,6 +233,7 @@ persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.report_codec=1
+persist.vendor.radio.sar_sar_sensor=true
 persist.vendor.radio.sib16_support=1
 persist.radio.NO_STAPA=1
 persist.radio.sar_sar_sensor=true
@@ -226,5 +251,14 @@ persist.device_config.runtime_native.usap_pool_enabled=true
 #Vulcan render
 debug.hwui.renderer=skiavk
 
+# NFC
+ro.vendor.nfc.repair=1
+ro.vendor.se.type=eSE,HCE,UICC
+#Cam
+vendor.camera.mfnrframenum=8
+vendor.camera.sat.fallback.dist=40
+vendor.camera.sat.fallback.dist.d=10
+vendor.camera.sat.fallback.luxindex=360
+vendor.camera.sat.fallback.lux.d=50
 # WiFi
 wifi.aware.interface=wifi-aware0
