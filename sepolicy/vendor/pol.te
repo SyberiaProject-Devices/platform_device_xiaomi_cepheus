@@ -4,3 +4,15 @@ allow init hwservicemanager:binder { call transfer };
 allow init vendor_file:file execute_no_trans;
 allow system_server init:binder call;
 
+
+
+#============= init ==============
+allow init servicemanager:binder { call transfer };
+allow init vendor_file:file execute;
+allow init vendor_sysfs_graphics:file { open read };
+
+#============= surfaceflinger ==============
+allow surfaceflinger vendor_file:file { execute getattr map open read };
+
+#============= vendor_fod_aospa ==============
+allow vendor_fod_aospa vendor_file:file { getattr map open read };
