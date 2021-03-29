@@ -26,6 +26,7 @@ $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 
 MSMNILE := msmnile
 TARGET_BOARD_PLATFORM := $(MSMNILE)
+TARGET_USE_QTI_BT_STACK := true
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
