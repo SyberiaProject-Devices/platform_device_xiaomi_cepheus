@@ -152,10 +152,6 @@ ODM_MANIFEST_FILES +=  $(DEVICE_PATH)/configs/hidl/manifest-qva.xml
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cepheus
 TARGET_RECOVERY_DEVICE_MODULES := libinit_cepheus
 
-# Media
-TARGET_USES_ION := true
-TARGET_DISABLED_UBWC := true
-
 # NFC
 TARGET_USES_NQ_NFC := true
 
