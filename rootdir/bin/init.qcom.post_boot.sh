@@ -148,13 +148,17 @@ case "$target" in
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/kernel/sched_boost
 
+    echo 1000 > /dev/blkio/blkio.weight
+    echo 200 > /dev/blkio/background/blkio.weight
+    echo 2000 > /dev/blkio/blkio.group_idle
+    echo 0 > /dev/blkio/background/blkio.group_idle
 	# configure governor settings for silver cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-        echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-        echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-        echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-        echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+    echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
+    echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
 
 	# configure governor settings for gold cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
@@ -172,72 +176,71 @@ case "$target" in
 
 	# configure input boost settings
 	echo "0:1324800" > /sys/module/cpu_boost/parameters/input_boost_freq
-	echo 500 > /sys/module/cpu_boost/parameters/input_boost_ms
-        echo "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:2323200" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
-        echo 400 > /sys/module/cpu_boost/parameters/powerkey_input_boost_ms
+	echo 120 > /sys/module/cpu_boost/parameters/input_boost_ms
+    echo "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:2323200" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
+    echo 400 > /sys/module/cpu_boost/parameters/powerkey_input_boost_ms
 
 	# wsf Range : 1..1000 So set to bare minimum value 1.
-        echo 1 > /proc/sys/vm/watermark_scale_factor
+    echo 1 > /proc/sys/vm/watermark_scale_factor
 
-        # Enable oom_reaper
 	if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
 		echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
 	else
 		echo 1 > /proc/sys/vm/reap_mem_on_sigkill
 	fi
 
-	# Enable bus-dcvs
-	for device in /sys/devices/platform/soc
-	do
-	    for cpubw in $device/*cpu-cpu-llcc-bw/devfreq/*cpu-cpu-llcc-bw
-	    do
-		echo "bw_hwmon" > $cpubw/governor
-		echo "2288 4577 7110 9155 12298 14236 15258" > $cpubw/bw_hwmon/mbps_zones
-		echo 4 > $cpubw/bw_hwmon/sample_ms
-		echo 50 > $cpubw/bw_hwmon/io_percent
-		echo 20 > $cpubw/bw_hwmon/hist_memory
-		echo 10 > $cpubw/bw_hwmon/hyst_length
-		echo 30 > $cpubw/bw_hwmon/down_thres
-		echo 0 > $cpubw/bw_hwmon/guard_band_mbps
-		echo 250 > $cpubw/bw_hwmon/up_scale
-		echo 1600 > $cpubw/bw_hwmon/idle_mbps
-		echo 14236 > $cpubw/max_freq
+    # Enable bus-dcvs
+    for device in /sys/devices/platform/soc
+    do
+        for cpubw in $device/*cpu-cpu-llcc-bw/devfreq/*cpu-cpu-llcc-bw
+        do
+        echo "bw_hwmon" > $cpubw/governor
+        echo "2288 4577 7110 9155 12298 14236 15258" > $cpubw/bw_hwmon/mbps_zones
+        echo 4 > $cpubw/bw_hwmon/sample_ms
+        echo 50 > $cpubw/bw_hwmon/io_percent
+        echo 20 > $cpubw/bw_hwmon/hist_memory
+        echo 10 > $cpubw/bw_hwmon/hyst_length
+        echo 30 > $cpubw/bw_hwmon/down_thres
+        echo 0 > $cpubw/bw_hwmon/guard_band_mbps
+        echo 250 > $cpubw/bw_hwmon/up_scale
+        echo 1600 > $cpubw/bw_hwmon/idle_mbps
+        echo 14236 > $cpubw/max_freq
                 echo 40 > $cpubw/polling_interval
-	    done
+        done
 
-	    for llccbw in $device/*cpu-llcc-ddr-bw/devfreq/*cpu-llcc-ddr-bw
-	    do
-		echo "bw_hwmon" > $llccbw/governor
-		echo "1720 2929 3879 5931 6881 7980" > $llccbw/bw_hwmon/mbps_zones
-		echo 4 > $llccbw/bw_hwmon/sample_ms
-		echo 80 > $llccbw/bw_hwmon/io_percent
-		echo 20 > $llccbw/bw_hwmon/hist_memory
-		echo 10 > $llccbw/bw_hwmon/hyst_length
-		echo 30 > $llccbw/bw_hwmon/down_thres
-		echo 0 > $llccbw/bw_hwmon/guard_band_mbps
-		echo 250 > $llccbw/bw_hwmon/up_scale
-		echo 1600 > $llccbw/bw_hwmon/idle_mbps
-		echo 6881 > $llccbw/max_freq
+        for llccbw in $device/*cpu-llcc-ddr-bw/devfreq/*cpu-llcc-ddr-bw
+        do
+        echo "bw_hwmon" > $llccbw/governor
+        echo "1720 2929 3879 5931 6881 7980" > $llccbw/bw_hwmon/mbps_zones
+        echo 4 > $llccbw/bw_hwmon/sample_ms
+        echo 80 > $llccbw/bw_hwmon/io_percent
+        echo 20 > $llccbw/bw_hwmon/hist_memory
+        echo 10 > $llccbw/bw_hwmon/hyst_length
+        echo 30 > $llccbw/bw_hwmon/down_thres
+        echo 0 > $llccbw/bw_hwmon/guard_band_mbps
+        echo 250 > $llccbw/bw_hwmon/up_scale
+        echo 1600 > $llccbw/bw_hwmon/idle_mbps
+        echo 6881 > $llccbw/max_freq
                 echo 40 > $llccbw/polling_interval
-	    done
+        done
 
-	    for npubw in $device/*npu-npu-ddr-bw/devfreq/*npu-npu-ddr-bw
-	    do
-		echo 1 > /sys/devices/virtual/npu/msm_npu/pwr
-		echo "bw_hwmon" > $npubw/governor
-		echo "1720 2929 3879 5931 6881 7980" > $npubw/bw_hwmon/mbps_zones
-		echo 4 > $npubw/bw_hwmon/sample_ms
-		echo 80 > $npubw/bw_hwmon/io_percent
-		echo 20 > $npubw/bw_hwmon/hist_memory
-		echo 6  > $npubw/bw_hwmon/hyst_length
-		echo 30 > $npubw/bw_hwmon/down_thres
-		echo 0 > $npubw/bw_hwmon/guard_band_mbps
-		echo 250 > $npubw/bw_hwmon/up_scale
-		echo 0 > $npubw/bw_hwmon/idle_mbps
+        for npubw in $device/*npu-npu-ddr-bw/devfreq/*npu-npu-ddr-bw
+        do
+        echo 1 > /sys/devices/virtual/npu/msm_npu/pwr
+        echo "bw_hwmon" > $npubw/governor
+        echo "1720 2929 3879 5931 6881 7980" > $npubw/bw_hwmon/mbps_zones
+        echo 4 > $npubw/bw_hwmon/sample_ms
+        echo 80 > $npubw/bw_hwmon/io_percent
+        echo 20 > $npubw/bw_hwmon/hist_memory
+        echo 6  > $npubw/bw_hwmon/hyst_length
+        echo 30 > $npubw/bw_hwmon/down_thres
+        echo 0 > $npubw/bw_hwmon/guard_band_mbps
+        echo 250 > $npubw/bw_hwmon/up_scale
+        echo 0 > $npubw/bw_hwmon/idle_mbps
                 echo 40 > $npubw/polling_interval
-		echo 0 > /sys/devices/virtual/npu/msm_npu/pwr
-	    done
-	done
+        echo 0 > /sys/devices/virtual/npu/msm_npu/pwr
+        done
+    done
 
     # memlat specific settings are moved to seperate file under
     # device/target specific folder
