@@ -70,4 +70,24 @@
         <fqname>@1.0::IWifiDisplaySessionImageTrack/wifidisplaysessionimagetrack</fqname>
         <fqname>@1.0::IWifiDisplaySessionVideoTrack/wifidisplaysessionvideotrack</fqname>
     </hal>
+    <!--ANT/BT/FM-->
+    <hal format="hidl">
+        <name>com.dsi.ant</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAnt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+   <!-- seccam service -->
+   <hal format="hidl">
+       <name>vendor.qti.hardware.seccam</name>
+       <transport>hwbinder</transport>
+       <version>1.0</version>
+       <interface>
+           <name>ISecCam</name>
+           <instance>default</instance>
+       </interface>
+    </hal>
 </manifest>
