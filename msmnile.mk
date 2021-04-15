@@ -516,8 +516,8 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Thermal
-#PRODUCT_PACKAGES += \
-#    android.hardware.thermal@2.0-service.qti
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.qti
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
