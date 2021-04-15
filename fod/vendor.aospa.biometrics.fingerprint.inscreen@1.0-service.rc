@@ -7,7 +7,7 @@ on boot
     chmod 0644 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_hbm
     chmod 0644 /sys/devices/virtual/touch/tp_dev/fod_status
 
-service vendor.fingerprint-inscreen-1-0 /vendor/bin/hw/vendor.aospa.biometrics.fingerprint.inscreen@1.0-service.cepheus
+service vendor.fingerprint-inscreen-1-0 /system_ext/bin/hw/vendor.aospa.biometrics.fingerprint.inscreen@1.0-service
     interface vendor.aospa.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
     class hal
     user system
