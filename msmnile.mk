@@ -33,11 +33,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
     $(LOCAL_PATH)/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
-PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-system/frameworks/base/packages/SystemUI
+#PRODUCT_ENFORCE_RRO_TARGETS := *
+#PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+#    $(LOCAL_PATH)/overlay/frameworks/base/packages/SystemUI
 
-
+PRODUCT_PACKAGES += ParanoidCamera
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
@@ -257,10 +257,6 @@ PRODUCT_PACKAGES += \
     libstdc++.vendor \
     vndk-sp \
     com.android.vndk.current.on_vendor
-
-# Insmod files
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
 
 # IWLAN
 PRODUCT_COPY_FILES += \
