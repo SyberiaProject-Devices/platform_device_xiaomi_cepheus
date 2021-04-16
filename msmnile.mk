@@ -23,6 +23,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
+$(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
+
 
 MSMNILE := msmnile
 TARGET_BOARD_PLATFORM := $(MSMNILE)
@@ -52,7 +54,9 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@6.0-impl \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio@2.0 \
-    android.hardware.bluetooth.audio@2.0-impl 
+    android.hardware.bluetooth.audio@2.0-impl \
+    android.hardware.soundtrigger@2.2-impl \
+    android.hardware.soundtrigger@2.3-impl
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
