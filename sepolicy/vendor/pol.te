@@ -1,6 +1,6 @@
 allow hal_camera_default exported_system_prop:file { read open getattr map };
 allow init hwservicemanager:binder { call transfer };
-
+allow vendor_fod_aospa hal_xiaomi_fingerprint_hwservice:hwservice_manager find;
 
 
 #============= init ==============
