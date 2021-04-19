@@ -253,6 +253,21 @@ PRODUCT_HOST_PACKAGES += \
 #PRODUCT_TARGET_VNDK_VERSION := 29
 #PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
+
+# GPS
+LOC_HIDL_VERSION = 4.0
+
+#GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gpsapdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
+    $(LOCAL_PATH)/configs/gpsflp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(LOCAL_PATH)/configs/gpsgnss_antenna_info.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gnss_antenna_info.conf \
+    $(LOCAL_PATH)/configs/gpsgps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gpsizat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(LOCAL_PATH)/configs/gpslowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
+    $(LOCAL_PATH)/configs/gpssap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
+
+
 PRODUCT_PACKAGES += \
     disable_configstore
 
@@ -588,6 +603,7 @@ PRODUCT_PACKAGES += \
 
 TARGET_COMMON_QTI_COMPONENTS := \
     bt \
+		gps \
     telephony \
     perf \
     wfd
