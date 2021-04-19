@@ -273,9 +273,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="editable_wfc_roaming_mode_bool" value="true" />
+        <boolean name="show_ims_registration_status_bool" value="true" />
         <boolean name="carrier_wfc_supports_ims_preferred_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
+        <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
 
     <carrier_config mcc="219" mnc="01">
