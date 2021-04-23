@@ -2,3 +2,4 @@ binder_call(shell, hal_power_default)
 
 allow shell hal_power_default:fd use;
 allow shell hal_power_default:fifo_file write;
+hal_client_domain(shell, vendor_hal_perf)
