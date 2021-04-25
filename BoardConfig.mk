@@ -216,7 +216,9 @@ TARGET_SEPOLICY_DIR := msmnile
 
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor \
+    $(DEVICE_PATH)/sepolicy/vendor/xiaomi/battery
+
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

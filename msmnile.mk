@@ -237,6 +237,9 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl-qti \
     android.hardware.health@2.1-service
 
+PRODUCT_PACKAGES += \
+    android.hardware.health.storage@1.0-service
+
 # HIDL Transport
 PRODUCT_PACKAGES += \
     libhidltransport \
@@ -255,8 +258,10 @@ PRODUCT_HOST_PACKAGES += \
 
 
 # GPS
-LOC_HIDL_VERSION = 4.0
 
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
+GNSS_HIDL_VERSION := 2.1
+LOC_HIDL_VERSION := 4.0
 #GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
@@ -530,7 +535,7 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Thermal
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
 
 # Touchscreen
