@@ -243,6 +243,7 @@
         </interface>
         <fqname>@2.1::IGoodixFingerprintDaemon/default</fqname>
     </hal>
+    <!--	
     <hal format="hidl">
         <name>vendor.nxp.hardware.nfc</name>
         <transport>hwbinder</transport>
@@ -252,6 +253,7 @@
             <instance>default</instance>
         </interface>
     </hal>
+    -->
     <hal format="hidl">
         <name>vendor.qti.data.factory</name>
         <transport>hwbinder</transport>
@@ -490,8 +492,9 @@
             <name>IPerf</name>
             <instance>default</instance>
         </interface>
+	<fqname>@2.2::IPerf/default</fqname>
     </hal>
-    <!--UICC secure element -->
+    <!--UICC secure element
     <hal format="hidl">
        <name>android.hardware.secure_element</name>
        <transport>hwbinder</transport>
@@ -503,6 +506,7 @@
            <instance>eSE1</instance>
        </interface>
     </hal>
+    -->
     <hal format="hidl">
         <name>vendor.qti.hardware.vpp</name>
         <transport>hwbinder</transport>
@@ -614,6 +618,7 @@
             <instance>embmsslServer0</instance>
         </interface>
     </hal>
+    <!--
     <hal format="hidl">
         <name>vendor.qti.esepowermanager</name>
         <transport>hwbinder</transport>
@@ -624,6 +629,7 @@
         </interface>
         <fqname>@1.1::IEsePowerManager/default</fqname>
     </hal>
+     -->
  <!-- WifiStats HAL service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.wifi.wifilearner</name>
