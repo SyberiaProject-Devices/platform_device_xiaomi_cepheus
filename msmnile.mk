@@ -24,7 +24,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 $(call inherit-product, vendor/xiaomi/cepheus/sound/sound-vendor.mk)
-
+$(call inherit-product, vendor/xiaomi/cepheus/prebuilt_camserver/prebuilt_camserver-vendor.mk)
 
 MSMNILE := msmnile
 TARGET_BOARD_PLATFORM := $(MSMNILE)
