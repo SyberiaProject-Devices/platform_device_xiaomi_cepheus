@@ -26,7 +26,7 @@
          If the mode names returned by the backend do not match
          the predefined and translated strings in the Settings
          app, they can be remapped here. The format is
-         "oldname:newname", one per entry. -->
+         "oldname:newname", one per entry. 
     <string-array name="config_displayModeMappings" translatable="false">
         <item>none:standard</item>
         <item>smart_eyedefault:reading</item>
@@ -34,7 +34,7 @@
         <item>hal_srgb:srgb</item>
         <item>smart_MC:dci_p3</item>
     </string-array>
-
+	    -->
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">true</bool>
 
