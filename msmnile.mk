@@ -139,8 +139,6 @@ PRODUCT_PACKAGES += \
     libxml2 \
     libvraudio \
     libdng_sdk.vendor \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service_64 \
     vendor.qti.hardware.camera.device@1.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -536,8 +534,11 @@ PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
 # Thermal
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.thermal@2.0-service.qti
+
+PRODUCT_PACKAGES += \
+    SnapdragonGallery
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
