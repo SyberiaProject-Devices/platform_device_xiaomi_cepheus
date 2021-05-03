@@ -105,11 +105,8 @@ on post-fs-data
 on boot
     chown system system /sys/class/thermal/thermal_message/sconfig
     write /sys/class/thermal/thermal_message/sconfig 10
-
-    # Allow system to modify dc dimming state
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
     chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl
-    # cache
     rm /cache/boot_lc_main.txt
     rm /cache/boot_dmesg.txt
     start boot_lc_main
