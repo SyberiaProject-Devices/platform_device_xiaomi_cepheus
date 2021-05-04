@@ -75,8 +75,8 @@ void vendor_load_properties() {
     set_ro_product_prop("device", "cepheus");
     set_ro_product_prop("model", "MI 9");
     set_ro_product_prop("name", "cepheus");
-    set_ro_build_prop("fingerprint", "google/redfin/redfin:11/RQ2A.210405.005/7181113:user/release-keys");
+    set_ro_build_prop("fingerprint", "google/redfin/redfin:11/RQ2A.210505.003/7255357:user/release-keys");
 
     // description
-    property_override("ro.build.description", "redfin-user 11 RQ2A.210405.005 7181113 release-keys");
+    property_override("ro.build.description", "redfin-user 11 RQ2A.210505.003 7255357 release-keys");
 }
