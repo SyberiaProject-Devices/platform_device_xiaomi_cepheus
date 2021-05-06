@@ -148,17 +148,17 @@ case "$target" in
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/kernel/sched_boost
 
-    echo 1000 > /dev/blkio/blkio.weight
-    echo 200 > /dev/blkio/background/blkio.weight
-    echo 2000 > /dev/blkio/blkio.group_idle
-    echo 0 > /dev/blkio/background/blkio.group_idle
+	echo 1000 > /dev/blkio/blkio.weight
+	echo 200 > /dev/blkio/background/blkio.weight
+	echo 2000 > /dev/blkio/blkio.group_idle
+	echo 0 > /dev/blkio/background/blkio.group_idle
 	# configure governor settings for silver cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-    echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-    echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-    echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-    echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+	echo 1209600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
+	echo 576000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
 
 	# configure governor settings for gold cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
@@ -177,11 +177,11 @@ case "$target" in
 	# configure input boost settings
 	echo "0:1324800" > /sys/module/cpu_boost/parameters/input_boost_freq
 	echo 120 > /sys/module/cpu_boost/parameters/input_boost_ms
-    echo "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:2323200" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
-    echo 400 > /sys/module/cpu_boost/parameters/powerkey_input_boost_ms
+	echo "0:0 1:0 2:0 3:0 4:2323200 5:0 6:0 7:2323200" > /sys/module/cpu_boost/parameters/powerkey_input_boost_freq
+	echo 400 > /sys/module/cpu_boost/parameters/powerkey_input_boost_ms
 
 	# wsf Range : 1..1000 So set to bare minimum value 1.
-    echo 1 > /proc/sys/vm/watermark_scale_factor
+	echo 1 > /proc/sys/vm/watermark_scale_factor
 
 	if [ -f /sys/module/lowmemorykiller/parameters/oom_reaper ]; then
 		echo 1 > /sys/module/lowmemorykiller/parameters/oom_reaper
