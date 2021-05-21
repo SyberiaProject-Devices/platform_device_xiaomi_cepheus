@@ -630,9 +630,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Updater
 
-# IORap app launch prefetching using Perfetto traces and madvise
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.iorapd.enable=true
 
 # Override heap growth limit due to high display density on device
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -651,10 +648,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=8 \
     dalvik.vm.dex2oat-threads=4 \
     dalvik.vm.image-dex2oat-threads=4
-
-
-# IORap app launch prefetching using Perfetto traces and madvise
-PRODUCT_PRODUCT_PROPERTIES += \
-     ro.iorapd.enable=true \
-     iorapd.readahead.enable=true
-
